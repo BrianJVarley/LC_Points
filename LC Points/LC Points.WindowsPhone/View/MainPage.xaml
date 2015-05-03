@@ -24,23 +24,49 @@
                   Grid.ColumnSpan="2"
                   Width="211"
                   Height="48"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Top" />
+                  Margin="10,159,0,368.833"
+                  HorizontalAlignment="Left" />
 
+        <ToggleButton x:Name="higherTglBtn"
+                      Margin="11,0,0,115.833"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Bottom"
+                      Content="Higher" />
+        <ToggleButton x:Name="ordinaryTglBtn"
+                      Grid.ColumnSpan="2"
+                      Margin="120,0,0,115.833"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Bottom"
+                      Content="Ordinary" />
+
+
+        <Button x:Name="addGradeBtn"
+                Margin="10,336,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Add Grade" />
         <ListView x:Name="gradeOneLbx"
-                  Grid.Column="2"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="2"
                   Width="49"
                   Height="48"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Top" />
-
-
-        <Button x:Name="calculateBtn"
-                Grid.Row="1"
+                  Margin="132.667,159,0,368.833"
+                  HorizontalAlignment="Left" />
+        <Button x:Name="clearAllBtn"
                 Grid.Column="1"
-                VerticalAlignment="Center"
-                Content="Calculate" />
-       
-
+                Margin="9.667,336,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="addGradeBtn_Click"
+                Content="Clear All" />
+        <TextBlock Grid.Row="1"
+                   Grid.ColumnSpan="3"
+                   Width="212"
+                   Height="54"
+                   Margin="89,0.167,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Text=""
+                   TextWrapping="Wrap" />
     </Grid>
 </Page>
