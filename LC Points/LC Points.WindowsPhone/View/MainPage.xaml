@@ -25,7 +25,8 @@
                   Width="211"
                   Height="48"
                   Margin="10,159,0,368.833"
-                  HorizontalAlignment="Left" />
+                  HorizontalAlignment="Left"
+                  ItemsSource="{Binding Subjects}" />
 
         <ToggleButton x:Name="higherTglBtn"
                       Margin="11,0,0,115.833"
@@ -51,13 +52,14 @@
                   Width="49"
                   Height="48"
                   Margin="132.667,159,0,368.833"
-                  HorizontalAlignment="Left" />
+                  HorizontalAlignment="Left"
+                  ItemsSource="{Binding Grades}" />
+
         <Button x:Name="clearAllBtn"
                 Grid.Column="1"
                 Margin="9.667,336,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Click="addGradeBtn_Click"
                 Content="Clear All" />
         <TextBlock Grid.Row="1"
                    Grid.ColumnSpan="3"

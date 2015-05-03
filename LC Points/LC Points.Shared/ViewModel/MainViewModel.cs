@@ -1,5 +1,6 @@
 using GalaSoft.MvvmLight;
 using LC_Points.Model;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace LC_Points.ViewModel
@@ -18,97 +19,138 @@ namespace LC_Points.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel()
         {
 
-            
-            public ObservableCollection<Grade> Grades { get; set; }
-
-       
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
-
-            public void GetDefaultAccomplishments()
-            {
-                ObservableCollection<Grade> gradeObj = new ObservableCollection<Grade>();
-
-                // Subjects
-                gradeObj.Add(new Grade() { Name = "Accounting", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Agricultural Economics", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Agricultural Science", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Ancient Greek", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Applied Math", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Arabic", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Art", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Artistic & Creative Group", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Biology", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Business", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Business Group", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Chemistry", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Classical Studies", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Construction Studies", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Design & Comm Graphics", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Economics", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Engineering", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "English", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "French", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Geography", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "German", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Hebrew Studies", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "History", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Home Economics", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Irish", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Italian", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Japanese", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Languages & Humanities", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Latin", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Link Modules", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Mathematics", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Music", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Other Language", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Physics", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Physics & Chemistry", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Practical Group", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Religious Education", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Russian", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Science Group", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Social Group", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Spanish", Type = "Subject" });
-                gradeObj.Add(new Grade() { Name = "Technology", Type = "Subject" });
-
-
-                // Grades to 
-                gradeObj.Add(new Grade() { Name = "A", Type = "Grade" });
-                gradeObj.Add(new Grade() { Name = "A", Type = "Grade" });
-                gradeObj.Add(new Grade() { Name = "B", Type = "Grade" });
-                gradeObj.Add(new Grade() { Name = "B", Type = "Grade" });
-                gradeObj.Add(new Grade() { Name = "B", Type = "Grade" });
-                gradeObj.Add(new Grade() { Name = "C", Type = "Grade" });
-                gradeObj.Add(new Grade() { Name = "C", Type = "Grade" });
-                gradeObj.Add(new Grade() { Name = "C", Type = "Grade" });
-                gradeObj.Add(new Grade() { Name = "D", Type = "Grade" });
-                gradeObj.Add(new Grade() { Name = "D", Type = "Grade" });
-                gradeObj.Add(new Grade() { Name = "D", Type = "Grade" });
-                gradeObj.Add(new Grade() { Name = "E,F,NG", Type = "Grade" });
-                gradeObj.Add(new Grade() { Name = "Pass", Type = "Grade" });
-                gradeObj.Add(new Grade() { Name = "Merit", Type = "Grade" });
-                gradeObj.Add(new Grade() { Name = "Distinction", Type = "Grade" });
-
-
-                Grades = gradeObj;
-                
-            }
-
-    
         }
+
+
+        private List<Grade> grades = new List<Grade>();
+        private List<Grade> subjects = new List<Grade>();
+
+        private List<KeyValuePair<string, int>> higherGradePointPairList = new List<KeyValuePair<string, int>>()
+        {
+            new KeyValuePair<string, int>("A1", 100),
+            new KeyValuePair<string, int>("A2", 90),
+            new KeyValuePair<string, int>("B1", 85),
+            new KeyValuePair<string, int>("B2", 80),
+            new KeyValuePair<string, int>("B3", 75),
+            new KeyValuePair<string, int>("C1", 70),
+            new KeyValuePair<string, int>("C2", 65),
+            new KeyValuePair<string, int>("C3", 60),
+            new KeyValuePair<string, int>("D1", 55),
+            new KeyValuePair<string, int>("D2", 50),
+            new KeyValuePair<string, int>("D3", 45),
+            new KeyValuePair<string, int>("E,F,NG", 0),
+            new KeyValuePair<string, int>("Pass", 30),
+            new KeyValuePair<string, int>("Merit", 50),
+            new KeyValuePair<string, int>("Distinction", 70),         
+        };
+
+
+        private List<KeyValuePair<string, int>> ordinaryGradePointPairList = new List<KeyValuePair<string, int>>()
+        {
+            new KeyValuePair<string, int>("A1", 60),
+            new KeyValuePair<string, int>("A2", 50),
+            new KeyValuePair<string, int>("B1", 45),
+            new KeyValuePair<string, int>("B2", 40),
+            new KeyValuePair<string, int>("B3", 35),
+            new KeyValuePair<string, int>("C1", 30),
+            new KeyValuePair<string, int>("C2", 25),
+            new KeyValuePair<string, int>("C3", 20),
+            new KeyValuePair<string, int>("D1", 15),
+            new KeyValuePair<string, int>("D2", 10),
+            new KeyValuePair<string, int>("D3", 5),
+            new KeyValuePair<string, int>("E,F,NG", 0),
+            new KeyValuePair<string, int>("Pass", 30),
+            new KeyValuePair<string, int>("Merit", 50),
+            new KeyValuePair<string, int>("Distinction", 70),         
+        };
+
+
+
+        public void GetGradeTypes()
+        {
+            List<Grade> gradeList = new List<Grade>();
+
+            // Adding Grades to List
+            gradeList.Add(new Grade { grade = "A1" });
+            gradeList.Add(new Grade { grade = "A2" });
+            gradeList.Add(new Grade { grade = "B1" });
+            gradeList.Add(new Grade { grade = "B2" });
+            gradeList.Add(new Grade { grade = "B3" });
+            gradeList.Add(new Grade { grade = "C1" });
+            gradeList.Add(new Grade { grade = "C2" });
+            gradeList.Add(new Grade { grade = "C3" });
+            gradeList.Add(new Grade { grade = "D1" });
+            gradeList.Add(new Grade { grade = "D2" });
+            gradeList.Add(new Grade { grade = "D3" });
+            gradeList.Add(new Grade { grade = "E,F,NG" });
+            gradeList.Add(new Grade { grade = "Pass" });
+            gradeList.Add(new Grade { grade = "Merit" });
+            gradeList.Add(new Grade { grade = "Distinction" });
+
+
+            grades = gradeList;
+
+        }
+
+
+        public void GetSubjectTypes()
+        {
+            List<Grade> subjectList = new List<Grade>();
+
+            // Adding Subjects to List
+            subjectList.Add(new Grade { subject = "Accounting" });
+            subjectList.Add(new Grade { subject = "Agricultural Economics" });
+            subjectList.Add(new Grade { subject = "Agricultural Science" });
+            subjectList.Add(new Grade { subject = "Ancient Greek" });
+            subjectList.Add(new Grade { subject = "Applied Math" });
+            subjectList.Add(new Grade { subject = "Arabic" });
+            subjectList.Add(new Grade { subject = "Art" });
+            subjectList.Add(new Grade { subject = "Artistic & Creative Group" });
+            subjectList.Add(new Grade { subject = "Biology" });
+            subjectList.Add(new Grade { subject = "Business" });
+            subjectList.Add(new Grade { subject = "Business Group" });
+            subjectList.Add(new Grade { subject = "Chemistry" });
+            subjectList.Add(new Grade { subject = "Classical Studies" });
+            subjectList.Add(new Grade { subject = "Construction Studies" });
+            subjectList.Add(new Grade { subject = "Design & Comm Graphics" });
+            subjectList.Add(new Grade { subject = "Economics" });
+            subjectList.Add(new Grade { subject = "Engineering" });
+            subjectList.Add(new Grade { subject = "English" });
+            subjectList.Add(new Grade { subject = "French" });
+            subjectList.Add(new Grade { subject = "Geography" });
+            subjectList.Add(new Grade { subject = "German" });
+            subjectList.Add(new Grade { subject = "Hebrew Studies" });
+            subjectList.Add(new Grade { subject = "History" });
+            subjectList.Add(new Grade { subject = "Home Economics" });
+            subjectList.Add(new Grade { subject = "Irish" });
+            subjectList.Add(new Grade { subject = "Italian" });
+            subjectList.Add(new Grade { subject = "Japanese" });
+            subjectList.Add(new Grade { subject = "Languages & Humanities" });
+            subjectList.Add(new Grade { subject = "Latin" });
+            subjectList.Add(new Grade { subject = "Link Modules" });
+            subjectList.Add(new Grade { subject = "Mathematics" });
+            subjectList.Add(new Grade { subject = "Music" });
+            subjectList.Add(new Grade { subject = "Other Language" });
+            subjectList.Add(new Grade { subject = "Physics" });
+            subjectList.Add(new Grade { subject = "Physics & Chemistry" });
+            subjectList.Add(new Grade { subject = "Practical Group" });
+            subjectList.Add(new Grade { subject = "Religious Education" });
+            subjectList.Add(new Grade { subject = "Russian" });
+            subjectList.Add(new Grade { subject = "Science Group" });
+            subjectList.Add(new Grade { subject = "Social Group" });
+            subjectList.Add(new Grade { subject = "Spanish" });
+            subjectList.Add(new Grade { subject = "Technology" });
+
+            subjects = subjectList;
+
+        }
+
     }
 }

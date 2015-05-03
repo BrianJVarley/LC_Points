@@ -5,17 +5,19 @@ using System.Text;
 
 namespace LC_Points.Model
 {
-    class Grade : INotifyPropertyChanged
+    public class Grade : INotifyPropertyChanged
     {
 
-        // The name of the accomplishment.
-        public string Name { get; set; }
+        // The name of the subject.
+        public string subject { get; set; }
 
-        // The type of the accomplishment, Item or Level.
-        public string Type { get; set; }
+        // The type of Grade, eg, A, B2 etc..
+        public string grade { get; set; }
+
+        // The points paired with each grade type.
+        public int points { get; set; }
 
 
-        // The number of each item that has been collected.
         private int _count;
         public int Count
         {
