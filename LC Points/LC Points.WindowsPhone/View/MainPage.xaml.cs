@@ -44,5 +44,7 @@ namespace LC_Points
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
         }
+
+        
     }
 }

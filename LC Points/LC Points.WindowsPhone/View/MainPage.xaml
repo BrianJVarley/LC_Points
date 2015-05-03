@@ -8,5 +8,39 @@
       DataContext="{Binding Source={StaticResource Locator},
                             Path=MainViewModel}"
       mc:Ignorable="d">
-    <Grid />
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90*" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <ListView x:Name="subjectOneLbx"
+                  Grid.ColumnSpan="2"
+                  Width="211"
+                  Height="48"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top" />
+
+        <ListView x:Name="gradeOneLbx"
+                  Grid.Column="2"
+                  Width="49"
+                  Height="48"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top" />
+
+
+        <Button x:Name="calculateBtn"
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Content="Calculate" />
+       
+
+    </Grid>
 </Page>

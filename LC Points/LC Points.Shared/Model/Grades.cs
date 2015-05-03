@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LC_Points.Model
 {
-    class Grades
+    class Grades 
     {
     }
 }
