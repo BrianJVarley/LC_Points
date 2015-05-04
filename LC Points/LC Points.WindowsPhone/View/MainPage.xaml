@@ -11,8 +11,11 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="90*" />
-            <RowDefinition Height="10*" />
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -22,45 +25,40 @@
 
 
         <ToggleButton x:Name="higherTglBtn"
-                      Margin="11,0,0,115.833"
                       HorizontalAlignment="Left"
-                      VerticalAlignment="Bottom"
-                      Content="Higher" />
+                      Content="Higher"
+                                            Grid.Row="3"
+/>
         <ToggleButton x:Name="ordinaryTglBtn"
                       Grid.ColumnSpan="2"
-                      Margin="120,0,0,115.833"
-                      HorizontalAlignment="Left"
-                      VerticalAlignment="Bottom"
+                      Grid.Row="3"
+                      HorizontalAlignment="Right"
                       Content="Ordinary" />
         <Button x:Name="addGradeBtn"
-                Margin="11,283,0,0"
+                Grid.Row="2"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Top"
                 Content="Add Grade" />
 
         <ComboBox x:Name="subjectCmbBx"
+                  Grid.Row="1"
                   Grid.ColumnSpan="2"
                   Width="174"
-                  Margin="10,73,0,0"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
                   ItemsSource="{Binding subjects}" />
         <ComboBox x:Name="grdeCmbBx"
+                  Grid.Row="1"
                   Grid.Column="1"
                   Grid.ColumnSpan="2"
                   Width="167"
-                  Margin="89.667,73,0,0"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Top"
+                  HorizontalAlignment="Right"
                   ItemsSource="{Binding grades}" />
 
-        <TextBlock Grid.Row="1"
+        <TextBlock Grid.Row="5"
                    Grid.ColumnSpan="3"
                    Width="212"
                    Height="54"
-                   Margin="89,0.167,0,0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
+                   HorizontalAlignment="Center"
                    Text=""
                    TextWrapping="Wrap" />
     </Grid>
