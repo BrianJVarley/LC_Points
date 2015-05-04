@@ -20,13 +20,6 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="subjectOneLbx"
-                  Grid.ColumnSpan="2"
-                  Width="211"
-                  Height="48"
-                  Margin="10,159,0,368.833"
-                  HorizontalAlignment="Left"
-                  ItemsSource="{Binding Subjects}" />
 
         <ToggleButton x:Name="higherTglBtn"
                       Margin="11,0,0,115.833"
@@ -39,28 +32,28 @@
                       HorizontalAlignment="Left"
                       VerticalAlignment="Bottom"
                       Content="Ordinary" />
-
-
         <Button x:Name="addGradeBtn"
-                Margin="10,336,0,0"
+                Margin="11,283,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="Add Grade" />
-        <ListView x:Name="gradeOneLbx"
+
+        <ComboBox x:Name="subjectCmbBx"
+                  Grid.ColumnSpan="2"
+                  Width="174"
+                  Margin="10,73,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  ItemsSource="{Binding subjects}" />
+        <ComboBox x:Name="grdeCmbBx"
                   Grid.Column="1"
                   Grid.ColumnSpan="2"
-                  Width="49"
-                  Height="48"
-                  Margin="132.667,159,0,368.833"
+                  Width="167"
+                  Margin="89.667,73,0,0"
                   HorizontalAlignment="Left"
-                  ItemsSource="{Binding Grades}" />
+                  VerticalAlignment="Top"
+                  ItemsSource="{Binding grades}" />
 
-        <Button x:Name="clearAllBtn"
-                Grid.Column="1"
-                Margin="9.667,336,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="Clear All" />
         <TextBlock Grid.Row="1"
                    Grid.ColumnSpan="3"
                    Width="212"
@@ -71,4 +64,20 @@
                    Text=""
                    TextWrapping="Wrap" />
     </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar x:Name="appBar" IsSticky="True">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Delete"
+                              IsCompact="False"
+                              Label="Clear All" />
+                <AppBarButton Icon="Help"
+                              IsCompact="False"
+                              Label="About" />
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="Share score!" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

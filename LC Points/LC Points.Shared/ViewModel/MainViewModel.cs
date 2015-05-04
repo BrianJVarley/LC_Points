@@ -25,54 +25,69 @@ namespace LC_Points.ViewModel
         /// </summary>
         public MainViewModel()
         {
-
+            //call methods to initilise list data
+            GetGradeTypes();
+            GetSubjectTypes();
         }
 
 
-        private List<Grade> grades = new List<Grade>();
-        private List<Grade> subjects = new List<Grade>();
+        public List<Grade> grades { get; set; }
+        public List<Grade> subjects { get; set; }
+        private List<KeyValuePair<string, int>> higherGradePointPair { get; set; }
+        private List<KeyValuePair<string, int>> ordinaryGradePointPair { get; set; }
 
-        private List<KeyValuePair<string, int>> higherGradePointPairList = new List<KeyValuePair<string, int>>()
+        
+        
+
+
+        public void GetOrdinaryGradePairs()
         {
-            new KeyValuePair<string, int>("A1", 100),
-            new KeyValuePair<string, int>("A2", 90),
-            new KeyValuePair<string, int>("B1", 85),
-            new KeyValuePair<string, int>("B2", 80),
-            new KeyValuePair<string, int>("B3", 75),
-            new KeyValuePair<string, int>("C1", 70),
-            new KeyValuePair<string, int>("C2", 65),
-            new KeyValuePair<string, int>("C3", 60),
-            new KeyValuePair<string, int>("D1", 55),
-            new KeyValuePair<string, int>("D2", 50),
-            new KeyValuePair<string, int>("D3", 45),
-            new KeyValuePair<string, int>("E,F,NG", 0),
-            new KeyValuePair<string, int>("Pass", 30),
-            new KeyValuePair<string, int>("Merit", 50),
-            new KeyValuePair<string, int>("Distinction", 70),         
-        };
+            List<KeyValuePair<string, int>> ordinaryGradePointPairList = new List<KeyValuePair<string, int>>();
+
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("A1", 60));
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("A2", 50));
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("B1", 45));
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("B2", 40));
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("B3", 35));
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("C1", 30));
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("C2", 25));
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("C3", 20));
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("D1", 15));
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("D2", 10));
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("D3", 5));
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("E,F,NG", 0));
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("Pass", 30));
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("Merit", 50));
+            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("Distinction", 70));
+
+            ordinaryGradePointPair = ordinaryGradePointPairList;
+        }
 
 
-        private List<KeyValuePair<string, int>> ordinaryGradePointPairList = new List<KeyValuePair<string, int>>()
+        public void GetHigherGradePairs()
         {
-            new KeyValuePair<string, int>("A1", 60),
-            new KeyValuePair<string, int>("A2", 50),
-            new KeyValuePair<string, int>("B1", 45),
-            new KeyValuePair<string, int>("B2", 40),
-            new KeyValuePair<string, int>("B3", 35),
-            new KeyValuePair<string, int>("C1", 30),
-            new KeyValuePair<string, int>("C2", 25),
-            new KeyValuePair<string, int>("C3", 20),
-            new KeyValuePair<string, int>("D1", 15),
-            new KeyValuePair<string, int>("D2", 10),
-            new KeyValuePair<string, int>("D3", 5),
-            new KeyValuePair<string, int>("E,F,NG", 0),
-            new KeyValuePair<string, int>("Pass", 30),
-            new KeyValuePair<string, int>("Merit", 50),
-            new KeyValuePair<string, int>("Distinction", 70),         
-        };
+            List<KeyValuePair<string, int>> higherGradePointPairList = new List<KeyValuePair<string, int>>();
 
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("A1", 100));
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("A2", 90));
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("B1", 85));
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("B2", 80));
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("B3", 75));
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("C1", 70));
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("C2", 65));
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("C3", 60));
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("D1", 55));
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("D2", 50));
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("D3", 45));
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("E,F,NG", 0));
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("Pass", 30));
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("Merit", 50));
+            higherGradePointPairList.Add(new KeyValuePair<string, int>("Distinction", 70));
 
-
+            higherGradePointPair = higherGradePointPairList;
+        }
+    
+        
         public void GetGradeTypes()
         {
             List<Grade> gradeList = new List<Grade>();
