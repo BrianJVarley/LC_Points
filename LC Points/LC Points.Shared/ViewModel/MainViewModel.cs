@@ -28,13 +28,14 @@ namespace LC_Points.ViewModel
             //call methods to initilise list data
             GetGradeTypes();
             GetSubjectTypes();
+            GetOrdinaryGradePairs();
         }
 
 
         public List<Grade> grades { get; set; }
         public List<Grade> subjects { get; set; }
-        private List<KeyValuePair<string, int>> higherGradePointPair { get; set; }
-        private List<KeyValuePair<string, int>> ordinaryGradePointPair { get; set; }
+        public List<KeyValuePair<string, int>> higherGradePointPair { get; set; }
+        public List<KeyValuePair<string, int>> ordinaryGradePointPair { get; set; }
 
         
         

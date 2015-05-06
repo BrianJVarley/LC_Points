@@ -5,55 +5,67 @@
       xmlns:local="using:LC_Points"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-      DataContext="{Binding Source={StaticResource Locator},
-                            Path=MainViewModel}"
+      DataContext="{Binding Source={StaticResource Locator}}"
       mc:Ignorable="d">
+
+
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="20*" />
             <RowDefinition Height="30*" />
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="20*" />
+            <RowDefinition Height="30*" />
             <RowDefinition Height="20*" />
             <RowDefinition Height="20*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
+            <ColumnDefinition Width="4.5*" />
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-
-        <ToggleButton x:Name="higherTglBtn"
-                      HorizontalAlignment="Left"
-                      Content="Higher"
-                                            Grid.Row="3"
-/>
-        <ToggleButton x:Name="ordinaryTglBtn"
-                      Grid.ColumnSpan="2"
-                      Grid.Row="3"
-                      HorizontalAlignment="Right"
-                      Content="Ordinary" />
-        <Button x:Name="addGradeBtn"
-                Grid.Row="2"
-                HorizontalAlignment="Left"
-                Content="Add Grade" />
-
+        <!--  TitlePanel contains the name of the application and page title  -->
+        <StackPanel x:Name="TitlePanel"
+                    Grid.Row="0"
+                    Margin="12,17,0,28">
+            <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Text="LC POINTS" />
+            <TextBlock Margin="9,-7,0,0"
+                       Foreground="DarkGreen"
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       Text="Home" />
+        </StackPanel>
         <ComboBox x:Name="subjectCmbBx"
                   Grid.Row="1"
                   Grid.ColumnSpan="2"
                   Width="174"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
+                  DisplayMemberPath="subject"
                   ItemsSource="{Binding subjects}" />
-        <ComboBox x:Name="grdeCmbBx"
+        <ComboBox x:Name="gradeCmbBx"
                   Grid.Row="1"
-                  Grid.Column="1"
+                  Grid.Column="0"
                   Grid.ColumnSpan="2"
-                  Width="167"
+                  Width="60"
                   HorizontalAlignment="Right"
-                  ItemsSource="{Binding grades}" />
+                  DisplayMemberPath="Key"
+                  ItemsSource="{Binding ordinaryGradePointPair}" />
 
+        <Button x:Name="addGradeBtn"
+                Grid.Row="2"
+                HorizontalAlignment="Left"
+                Content="Add Grade" />
+
+        <ToggleButton x:Name="higherTglBtn"
+                      Grid.Row="3"
+                      HorizontalAlignment="Left"
+                      Content="Higher" />
+        <ToggleButton x:Name="ordinaryTglBtn"
+                      Grid.Row="3"
+                      Grid.ColumnSpan="2"
+                      HorizontalAlignment="Center"
+                      Content="Ordinary" />
         <TextBlock Grid.Row="5"
                    Grid.ColumnSpan="3"
                    Width="212"
