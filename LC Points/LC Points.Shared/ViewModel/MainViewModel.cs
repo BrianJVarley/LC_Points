@@ -34,58 +34,72 @@ namespace LC_Points.ViewModel
 
         public List<Grade> grades { get; set; }
         public List<Grade> subjects { get; set; }
-        public List<KeyValuePair<string, int>> higherGradePointPair { get; set; }
-        public List<KeyValuePair<string, int>> ordinaryGradePointPair { get; set; }
+        public List<StringKeyValue> higherGradePointKV { get; set; }
+        public List<StringKeyValue> ordinaryGradePointKV { get; set; }
 
-        
-        
+
+
+
+
+        public class StringKeyValue
+        {
+            public string Key { get; set; }
+            public int Value { get; set; }
+        }
 
 
         public void GetOrdinaryGradePairs()
         {
-            List<KeyValuePair<string, int>> ordinaryGradePointPairList = new List<KeyValuePair<string, int>>();
 
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("A1", 60));
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("A2", 50));
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("B1", 45));
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("B2", 40));
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("B3", 35));
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("C1", 30));
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("C2", 25));
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("C3", 20));
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("D1", 15));
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("D2", 10));
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("D3", 5));
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("E,F,NG", 0));
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("Pass", 30));
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("Merit", 50));
-            ordinaryGradePointPairList.Add(new KeyValuePair<string, int>("Distinction", 70));
+            List<StringKeyValue> ordianryGradePointKVTemp = new List<StringKeyValue>();
 
-            ordinaryGradePointPair = ordinaryGradePointPairList;
+
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "A1", Value = 60 });
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "A2", Value = 50 });
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "B1", Value = 45 });
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "B2", Value = 40 });
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "B3", Value = 35 });
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "C1", Value = 30 });
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "C2", Value = 25 });
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "C3", Value = 20 });
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "D1", Value = 15 });
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "D2", Value = 10 });
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "D3", Value = 5 });
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "E,F,NG", Value = 0 });
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "Pass", Value = 30 });
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "Merit", Value = 50 });
+            ordianryGradePointKVTemp.Add(new StringKeyValue { Key = "Distinction", Value = 70 });
+
+
+            ordinaryGradePointKV = ordianryGradePointKVTemp;
+
         }
 
 
         public void GetHigherGradePairs()
         {
-            List<KeyValuePair<string, int>> higherGradePointPairList = new List<KeyValuePair<string, int>>();
+           
+            List<StringKeyValue> higherGradePointKVTemp = new List<StringKeyValue>();
 
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("A1", 100));
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("A2", 90));
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("B1", 85));
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("B2", 80));
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("B3", 75));
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("C1", 70));
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("C2", 65));
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("C3", 60));
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("D1", 55));
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("D2", 50));
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("D3", 45));
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("E,F,NG", 0));
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("Pass", 30));
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("Merit", 50));
-            higherGradePointPairList.Add(new KeyValuePair<string, int>("Distinction", 70));
 
-            higherGradePointPair = higherGradePointPairList;
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "A1", Value = 100 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "A2", Value = 90 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "B1", Value = 85 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "B2", Value = 80 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "B3", Value = 75 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "C1", Value = 70 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "C2", Value = 65 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "C3", Value = 60 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "D1", Value = 55 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "D2", Value = 50 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "D3", Value = 45 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "E,F,NG", Value = 0 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "Pass", Value = 30 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "Merit", Value = 50 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "Distinction", Value = 70 });
+
+
+            higherGradePointKV = higherGradePointKVTemp;
         }
     
         

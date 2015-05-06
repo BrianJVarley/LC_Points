@@ -50,7 +50,7 @@
                   Width="60"
                   HorizontalAlignment="Right"
                   DisplayMemberPath="Key"
-                  ItemsSource="{Binding ordinaryGradePointPair}" />
+                  ItemsSource="{Binding ordinaryGradePointKV}" />
 
         <Button x:Name="addGradeBtn"
                 Grid.Row="2"
