@@ -120,7 +120,7 @@ namespace LC_Points.ViewModel
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "B1", Value = 85 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "B2", Value = 80 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "B3", Value = 75 });
-            higherGradePointKVTemp.Add(new StringKeyValue { Key = "MothafukaJones!!", Value = 70 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "!!TestHigherGrades!!", Value = 70 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "C2", Value = 65 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "C3", Value = 60 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "D1", Value = 55 });

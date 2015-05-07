@@ -9,8 +9,8 @@ namespace LC_Points.Converter
 {
     class BoolToNonVisibilityConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType,
-        object parameter, CultureInfo culture)
+       
+        public object Convert(object value, Type targetType, object parameter, string language)
         {
             // Do the conversion from bool to visibility
             bool bValue = (bool)value;
@@ -18,10 +18,11 @@ namespace LC_Points.Converter
                 return Visibility.Collapsed;
             else
                 return Visibility.Visible;
+
+            throw new NotImplementedException();
         }
 
-        public object ConvertBack(object value, Type targetType,
-            object parameter, CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             // Do the conversion from visibility to bool
             Visibility visibility = (Visibility)value;
@@ -30,6 +31,8 @@ namespace LC_Points.Converter
                 return true;
             else
                 return false;
+
+            throw new NotImplementedException();
         }
     }
 }
