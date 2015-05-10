@@ -13,13 +13,10 @@
       DataContext="{Binding Source={StaticResource Locator}}"
       mc:Ignorable="d">
 
-
     <Page.Resources>
         <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <converter:BoolToNonVisibilityConverter x:Key="BoolToNonVisibilityConverter" />
     </Page.Resources>
-
-
 
 
     <Grid>
@@ -34,7 +31,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*" />
             <ColumnDefinition Width="3*" />
-            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
 
         <!--  TitlePanel contains the name of the application and page title  -->
@@ -51,6 +47,8 @@
                   Grid.Row="1"
                   Grid.ColumnSpan="2"
                   Width="174"
+                  Header="Subject"
+                  PlaceholderText="Pick a subject"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
                   DisplayMemberPath="Subject"
@@ -61,7 +59,9 @@
                   Grid.Row="1"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"
-                  Width="60"
+                  Width="170"
+                  Header="Grade"
+                  PlaceholderText="Pick a grade"
                   HorizontalAlignment="Right"
                   DisplayMemberPath="Key"
                   ItemsSource="{Binding OrdinaryGradePointKV}"
@@ -73,7 +73,9 @@
                   Grid.Row="1"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"
-                  Width="60"
+                  PlaceholderText="Pick a grade"
+                  Header="Grade"
+                  Width="170"
                   HorizontalAlignment="Right"
                   DisplayMemberPath="Key"
                   ItemsSource="{Binding HigherGradePointKV}"
@@ -113,12 +115,20 @@
     <Page.BottomAppBar>
         <CommandBar x:Name="appBar" IsSticky="True">
             <CommandBar.PrimaryCommands>
-                <AppBarButton Icon="Delete"
+                <AppBarButton x:Name="ClearAppBarButton"
+                              Icon="Delete"
                               IsCompact="False"
                               Label="Clear All" />
-                <AppBarButton Icon="Help"
+                <AppBarButton x:Name="AboutAppBarButton"
+                              Icon="Help"
                               IsCompact="False"
-                              Label="About" />
+                              Label="About">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="LC_Points.View.AboutPage" />
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </AppBarButton>
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
                 <AppBarButton Label="Share score!" />

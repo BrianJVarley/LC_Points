@@ -17,7 +17,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Converter\BoolToNonVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converter\BoolToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\AboutModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Score.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AboutViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelLocator.cs" />
   </ItemGroup>

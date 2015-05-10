@@ -1,4 +1,5 @@
-﻿using LC_Points.ViewModel;
+﻿using LC_Points.View;
+using LC_Points.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -41,22 +42,11 @@ namespace LC_Points
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
           
-            /*
-            vm.GetSubjectTypes();
-            vm.GetGradeTypes();
-
-            subjectCmbBx.DataContext = vm.subjects;
-             */
+           
 
 
         }
-
-
-
-
-       
-
-       
+   
         
     }
 }
