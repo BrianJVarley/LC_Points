@@ -1,7 +1,9 @@
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using LC_Points.Model;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace LC_Points.ViewModel
 {
@@ -20,11 +22,18 @@ namespace LC_Points.ViewModel
     public class MainViewModel : ViewModelBase
     {
 
+
+        private ScoreModel _scoreModel;
+        
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel()
+        public MainViewModel(ScoreModel GradeModel)
         {
+
+            _scoreModel = GradeModel;
+
             //call methods to initilise list data
             GetSubjectTypes();
             GetOrdinaryGradePairs();
@@ -32,7 +41,7 @@ namespace LC_Points.ViewModel
         }
 
 
-        public List<Score> Subjects { get; set; }
+        public List<ScoreModel> Subjects { get; set; }
         public List<StringKeyValue> HigherGradePointKV { get; set; }
         public List<StringKeyValue> OrdinaryGradePointKV { get; set; }
 
@@ -70,6 +79,36 @@ namespace LC_Points.ViewModel
                 //RaisePropertyChanged("GradePointKV");
             }
         }
+
+
+
+
+        //Method to store Subject and Grade from Combo Boxes
+        public void AddSubjectAndGrade()
+        {
+            
+        }
+
+        
+        RelayCommand addGradeCommand;
+        public RelayCommand AddGradeCommand
+        {
+            get
+            {
+                if (addGradeCommand == null)
+                {
+                    addGradeCommand = new RelayCommand(() =>
+                    {
+                        AddSubjectAndGrade();
+
+                    });
+                }
+                return addGradeCommand;
+            }
+        }
+         
+
+
 
 
 
@@ -139,51 +178,51 @@ namespace LC_Points.ViewModel
 
         public void GetSubjectTypes()
         {
-            List<Score> subjectList = new List<Score>();
+            List<ScoreModel> subjectList = new List<ScoreModel>();
 
             // Adding Subjects to List
-            subjectList.Add(new Score { Subject = "Accounting" });
-            subjectList.Add(new Score { Subject = "Agricultural Economics" });
-            subjectList.Add(new Score { Subject = "Agricultural Science" });
-            subjectList.Add(new Score { Subject = "Ancient Greek" });
-            subjectList.Add(new Score { Subject = "Applied Math" });
-            subjectList.Add(new Score { Subject = "Arabic" });
-            subjectList.Add(new Score { Subject = "Art" });
-            subjectList.Add(new Score { Subject = "Artistic & Creative Group" });
-            subjectList.Add(new Score { Subject = "Biology" });
-            subjectList.Add(new Score { Subject = "Business" });
-            subjectList.Add(new Score { Subject = "Business Group" });
-            subjectList.Add(new Score { Subject = "Chemistry" });
-            subjectList.Add(new Score { Subject = "Classical Studies" });
-            subjectList.Add(new Score { Subject = "Construction Studies" });
-            subjectList.Add(new Score { Subject = "Design & Comm Graphics" });
-            subjectList.Add(new Score { Subject = "Economics" });
-            subjectList.Add(new Score { Subject = "Engineering" });
-            subjectList.Add(new Score { Subject = "English" });
-            subjectList.Add(new Score { Subject = "French" });
-            subjectList.Add(new Score { Subject = "Geography" });
-            subjectList.Add(new Score { Subject = "German" });
-            subjectList.Add(new Score { Subject = "Hebrew Studies" });
-            subjectList.Add(new Score { Subject = "History" });
-            subjectList.Add(new Score { Subject = "Home Economics" });
-            subjectList.Add(new Score { Subject = "Irish" });
-            subjectList.Add(new Score { Subject = "Italian" });
-            subjectList.Add(new Score { Subject = "Japanese" });
-            subjectList.Add(new Score { Subject = "Languages & Humanities" });
-            subjectList.Add(new Score { Subject = "Latin" });
-            subjectList.Add(new Score { Subject = "Link Modules" });
-            subjectList.Add(new Score { Subject = "Mathematics" });
-            subjectList.Add(new Score { Subject = "Music" });
-            subjectList.Add(new Score { Subject = "Other Language" });
-            subjectList.Add(new Score { Subject = "Physics" });
-            subjectList.Add(new Score { Subject = "Physics & Chemistry" });
-            subjectList.Add(new Score { Subject = "Practical Group" });
-            subjectList.Add(new Score { Subject = "Religious Education" });
-            subjectList.Add(new Score { Subject = "Russian" });
-            subjectList.Add(new Score { Subject = "Science Group" });
-            subjectList.Add(new Score { Subject = "Social Group" });
-            subjectList.Add(new Score { Subject = "Spanish" });
-            subjectList.Add(new Score { Subject = "Technology" });
+            subjectList.Add(new ScoreModel { Subject = "Accounting" });
+            subjectList.Add(new ScoreModel { Subject = "Agricultural Economics" });
+            subjectList.Add(new ScoreModel { Subject = "Agricultural Science" });
+            subjectList.Add(new ScoreModel { Subject = "Ancient Greek" });
+            subjectList.Add(new ScoreModel { Subject = "Applied Math" });
+            subjectList.Add(new ScoreModel { Subject = "Arabic" });
+            subjectList.Add(new ScoreModel { Subject = "Art" });
+            subjectList.Add(new ScoreModel { Subject = "Artistic & Creative Group" });
+            subjectList.Add(new ScoreModel { Subject = "Biology" });
+            subjectList.Add(new ScoreModel { Subject = "Business" });
+            subjectList.Add(new ScoreModel { Subject = "Business Group" });
+            subjectList.Add(new ScoreModel { Subject = "Chemistry" });
+            subjectList.Add(new ScoreModel { Subject = "Classical Studies" });
+            subjectList.Add(new ScoreModel { Subject = "Construction Studies" });
+            subjectList.Add(new ScoreModel { Subject = "Design & Comm Graphics" });
+            subjectList.Add(new ScoreModel { Subject = "Economics" });
+            subjectList.Add(new ScoreModel { Subject = "Engineering" });
+            subjectList.Add(new ScoreModel { Subject = "English" });
+            subjectList.Add(new ScoreModel { Subject = "French" });
+            subjectList.Add(new ScoreModel { Subject = "Geography" });
+            subjectList.Add(new ScoreModel { Subject = "German" });
+            subjectList.Add(new ScoreModel { Subject = "Hebrew Studies" });
+            subjectList.Add(new ScoreModel { Subject = "History" });
+            subjectList.Add(new ScoreModel { Subject = "Home Economics" });
+            subjectList.Add(new ScoreModel { Subject = "Irish" });
+            subjectList.Add(new ScoreModel { Subject = "Italian" });
+            subjectList.Add(new ScoreModel { Subject = "Japanese" });
+            subjectList.Add(new ScoreModel { Subject = "Languages & Humanities" });
+            subjectList.Add(new ScoreModel { Subject = "Latin" });
+            subjectList.Add(new ScoreModel { Subject = "Link Modules" });
+            subjectList.Add(new ScoreModel { Subject = "Mathematics" });
+            subjectList.Add(new ScoreModel { Subject = "Music" });
+            subjectList.Add(new ScoreModel { Subject = "Other Language" });
+            subjectList.Add(new ScoreModel { Subject = "Physics" });
+            subjectList.Add(new ScoreModel { Subject = "Physics & Chemistry" });
+            subjectList.Add(new ScoreModel { Subject = "Practical Group" });
+            subjectList.Add(new ScoreModel { Subject = "Religious Education" });
+            subjectList.Add(new ScoreModel { Subject = "Russian" });
+            subjectList.Add(new ScoreModel { Subject = "Science Group" });
+            subjectList.Add(new ScoreModel { Subject = "Social Group" });
+            subjectList.Add(new ScoreModel { Subject = "Spanish" });
+            subjectList.Add(new ScoreModel { Subject = "Technology" });
 
             Subjects = subjectList;
 

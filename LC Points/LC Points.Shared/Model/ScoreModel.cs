@@ -5,8 +5,10 @@ using System.Text;
 
 namespace LC_Points.Model
 {
-    public class Score : INotifyPropertyChanged
+    public class ScoreModel : INotifyPropertyChanged
     {
+
+
 
         // The name of the subject.
         public string Subject { get; set; }

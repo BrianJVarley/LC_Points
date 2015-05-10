@@ -47,12 +47,12 @@
                   Grid.Row="1"
                   Grid.ColumnSpan="2"
                   Width="174"
-                  Header="Subject"
-                  PlaceholderText="Pick a subject"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
                   DisplayMemberPath="Subject"
-                  ItemsSource="{Binding Subjects}" />
+                  Header="Subjects"
+                  ItemsSource="{Binding Subjects}"
+                  PlaceholderText="Pick a subject" />
 
 
         <ComboBox x:Name="ordinaryGradeCmbBx"
@@ -60,11 +60,11 @@
                   Grid.Column="0"
                   Grid.ColumnSpan="2"
                   Width="170"
-                  Header="Grade"
-                  PlaceholderText="Pick a grade"
                   HorizontalAlignment="Right"
                   DisplayMemberPath="Key"
+                  Header="Grades"
                   ItemsSource="{Binding OrdinaryGradePointKV}"
+                  PlaceholderText="Pick a grade"
                   Visibility="{Binding IsHigherToggled,
                                        Mode=TwoWay,
                                        Converter={StaticResource BoolToNonVisibilityConverter}}" />
@@ -73,12 +73,12 @@
                   Grid.Row="1"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"
-                  PlaceholderText="Pick a grade"
-                  Header="Grade"
                   Width="170"
                   HorizontalAlignment="Right"
                   DisplayMemberPath="Key"
+                  Header="Grades"
                   ItemsSource="{Binding HigherGradePointKV}"
+                  PlaceholderText="Pick a grade"
                   Visibility="{Binding IsHigherToggled,
                                        Mode=TwoWay,
                                        Converter={StaticResource BoolToVisibilityConverter}}" />
@@ -87,6 +87,7 @@
         <Button x:Name="addGradeBtn"
                 Grid.Row="2"
                 HorizontalAlignment="Left"
+                Command="{Binding Path=AddGradeCommand}"
                 Content="Add Grade" />
 
         <ToggleButton x:Name="higherTglBtn"
