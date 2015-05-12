@@ -36,7 +36,10 @@ namespace LC_Points.ViewModel
             GetOrdinaryGradePairs();
             GetHigherGradePairs();
         }
-      
+
+
+        public ObservableCollection<ScoreModel> AddedSubjectGradePairs { get; set; }
+
 
         public List<ScoreModel> Subjects { get; set; }
         public List<StringKeyValue> HigherGradePointKV { get; set; }
@@ -87,6 +90,10 @@ namespace LC_Points.ViewModel
         //Method to store Subject and Grade from Combo Boxes
         public void AddSubjectAndGrade()
         {
+
+            ObservableCollection<ScoreModel> a = new ObservableCollection<ScoreModel>();
+
+
             string SelectedSubjectName = "null data";
             int SelectedPoints = 01;
 
@@ -94,8 +101,9 @@ namespace LC_Points.ViewModel
             SelectedSubjectName = SelectedSubject.Subject;
             SelectedPoints = SelectedGrade.Value;
 
+            a.Add(new ScoreModel() { Subject = SelectedSubjectName, Points = SelectedPoints });
 
-
+            AddedSubjectGradePairs = a;
 
         }
 
