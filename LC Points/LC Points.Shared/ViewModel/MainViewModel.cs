@@ -1,9 +1,11 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using LC_Points.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
 
 namespace LC_Points.ViewModel
 {
@@ -21,19 +23,14 @@ namespace LC_Points.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-
-
-        private ScoreModel _scoreModel;
-        
+      
+  
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel(ScoreModel GradeModel)
+        public MainViewModel()
         {
-
-            _scoreModel = GradeModel;
-
             //call methods to initilise list data
             GetSubjectTypes();
             GetOrdinaryGradePairs();
@@ -41,11 +38,39 @@ namespace LC_Points.ViewModel
         }
 
 
+        
+
         public List<ScoreModel> Subjects { get; set; }
         public List<StringKeyValue> HigherGradePointKV { get; set; }
         public List<StringKeyValue> OrdinaryGradePointKV { get; set; }
+        public List<StringKeyValue> SubjectPointKV { get; set; }
+       
 
-        //public List<StringKeyValue> GradePointKV { get { return IsOrdinaryToggled ? OrdinaryGradePointKV : HigherGradePointKV; } }
+        private int _selectedOrdinaryPoints;
+        public int SelectedOrdinaryPoints
+        {
+            get { return _selectedOrdinaryPoints; }
+
+            set
+            {
+                _selectedOrdinaryPoints = value;
+                RaisePropertyChanged("SelectedOrdinaryPoints");
+            }
+        }
+
+
+
+        private int _selectedHigherPoints;
+        public int SelectedHigherPoints
+        {
+            get { return _selectedHigherPoints; }
+
+            set
+            {
+                _selectedHigherPoints = value;
+                RaisePropertyChanged("SelectedHigherPoints");
+            }
+        }
 
 
         //ordinary toggle button bool
@@ -60,9 +85,10 @@ namespace LC_Points.ViewModel
             {
                 _isOrdinaryToggled = value;
                 RaisePropertyChanged("IsOrdinaryToggled");
-                //RaisePropertyChanged("GradePointKV");
             }
         }
+
+
 
         //Higher toggle button bool property
         private bool _isHigherToggled;
@@ -86,7 +112,30 @@ namespace LC_Points.ViewModel
         //Method to store Subject and Grade from Combo Boxes
         public void AddSubjectAndGrade()
         {
-            
+            string SelectedSubjectName = "null data";
+            int SelectedPoints = 01;
+
+            //SelectedSubjectName = ScoreModel.
+
+            try
+            {
+                SelectedPoints = int.Parse(SelectedOrdinaryPoints.ToString());
+
+            }
+            catch (Exception e)
+            {
+                //log error here..
+
+            }
+
+            List<StringKeyValue> SubjectPointKVTemp = new List<StringKeyValue>();
+
+            //Add selected pair to list
+            SubjectPointKVTemp.Add(new StringKeyValue { Key = SelectedSubjectName, Value = SelectedPoints });
+           
+            SubjectPointKV = SubjectPointKVTemp;
+
+
         }
 
         
@@ -107,10 +156,6 @@ namespace LC_Points.ViewModel
             }
         }
          
-
-
-
-
 
 
         public class StringKeyValue

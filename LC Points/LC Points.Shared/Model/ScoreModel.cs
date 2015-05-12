@@ -26,6 +26,7 @@ namespace LC_Points.Model
             get
             {
                 return _count;
+               
             }
             set
             {
@@ -33,7 +34,6 @@ namespace LC_Points.Model
                 this.RaisePropertyChanged("Count");
             }
         }
-
 
 
 

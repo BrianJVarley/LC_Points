@@ -52,7 +52,9 @@
                   DisplayMemberPath="Subject"
                   Header="Subjects"
                   ItemsSource="{Binding Subjects}"
-                  PlaceholderText="Pick a subject" />
+                  PlaceholderText="Pick a subject"
+                  SelectedItem="{Binding ScoreModel,
+                                         Mode=TwoWay}" />
 
 
         <ComboBox x:Name="ordinaryGradeCmbBx"
@@ -65,6 +67,8 @@
                   Header="Grades"
                   ItemsSource="{Binding OrdinaryGradePointKV}"
                   PlaceholderText="Pick a grade"
+                  SelectedValue="{Binding StringKeyValue,
+                                          Mode=TwoWay}"
                   Visibility="{Binding IsHigherToggled,
                                        Mode=TwoWay,
                                        Converter={StaticResource BoolToNonVisibilityConverter}}" />

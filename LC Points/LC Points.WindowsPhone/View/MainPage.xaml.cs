@@ -25,13 +25,14 @@ namespace LC_Points
     public sealed partial class MainPage : Page
     {
 
+
         private MainViewModel vm;
 
         public MainPage()
         {
             this.InitializeComponent();
             this.NavigationCacheMode = NavigationCacheMode.Required;
-            vm = new MainViewModel();
+            //vm = new MainViewModel();
         }
 
         /// <summary>
@@ -42,11 +43,9 @@ namespace LC_Points
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-            subjectCmbBx.SelectedItem.ToString();
-
-
+            
         }
-   
+        
         
     }
 }
