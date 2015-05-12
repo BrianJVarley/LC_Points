@@ -53,7 +53,7 @@
                   Header="Subjects"
                   ItemsSource="{Binding Subjects}"
                   PlaceholderText="Pick a subject"
-                  SelectedItem="{Binding ScoreModel,
+                  SelectedItem="{Binding SelectedSubject,
                                          Mode=TwoWay}" />
 
 
@@ -67,7 +67,7 @@
                   Header="Grades"
                   ItemsSource="{Binding OrdinaryGradePointKV}"
                   PlaceholderText="Pick a grade"
-                  SelectedValue="{Binding StringKeyValue,
+                  SelectedValue="{Binding SelectedGrade,
                                           Mode=TwoWay}"
                   Visibility="{Binding IsHigherToggled,
                                        Mode=TwoWay,

@@ -36,41 +36,16 @@ namespace LC_Points.ViewModel
             GetOrdinaryGradePairs();
             GetHigherGradePairs();
         }
-
-
-        
+      
 
         public List<ScoreModel> Subjects { get; set; }
         public List<StringKeyValue> HigherGradePointKV { get; set; }
         public List<StringKeyValue> OrdinaryGradePointKV { get; set; }
-        public List<StringKeyValue> SubjectPointKV { get; set; }
-       
 
-        private int _selectedOrdinaryPoints;
-        public int SelectedOrdinaryPoints
-        {
-            get { return _selectedOrdinaryPoints; }
+        public ScoreModel SelectedSubject { get; set; }
+        public StringKeyValue SelectedGrade { get; set; }
 
-            set
-            {
-                _selectedOrdinaryPoints = value;
-                RaisePropertyChanged("SelectedOrdinaryPoints");
-            }
-        }
-
-
-
-        private int _selectedHigherPoints;
-        public int SelectedHigherPoints
-        {
-            get { return _selectedHigherPoints; }
-
-            set
-            {
-                _selectedHigherPoints = value;
-                RaisePropertyChanged("SelectedHigherPoints");
-            }
-        }
+     
 
 
         //ordinary toggle button bool
@@ -115,25 +90,11 @@ namespace LC_Points.ViewModel
             string SelectedSubjectName = "null data";
             int SelectedPoints = 01;
 
-            //SelectedSubjectName = ScoreModel.
 
-            try
-            {
-                SelectedPoints = int.Parse(SelectedOrdinaryPoints.ToString());
+            SelectedSubjectName = SelectedSubject.Subject;
+            SelectedPoints = SelectedGrade.Value;
 
-            }
-            catch (Exception e)
-            {
-                //log error here..
 
-            }
-
-            List<StringKeyValue> SubjectPointKVTemp = new List<StringKeyValue>();
-
-            //Add selected pair to list
-            SubjectPointKVTemp.Add(new StringKeyValue { Key = SelectedSubjectName, Value = SelectedPoints });
-           
-            SubjectPointKV = SubjectPointKVTemp;
 
 
         }
