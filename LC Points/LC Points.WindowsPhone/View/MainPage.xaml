@@ -67,9 +67,9 @@
                   Header="Grades"
                   ItemsSource="{Binding OrdinaryGradePointKV}"
                   PlaceholderText="Pick a grade"
-                  SelectedValue="{Binding SelectedGrade,
+                  SelectedValue="{Binding SelectedOrdinaryGrade,
                                           Mode=TwoWay}"
-                  Visibility="{Binding IsHigherToggled,
+                  Visibility="{Binding IsHigher,
                                        Mode=TwoWay,
                                        Converter={StaticResource BoolToNonVisibilityConverter}}" />
 
@@ -83,7 +83,9 @@
                   Header="Grades"
                   ItemsSource="{Binding HigherGradePointKV}"
                   PlaceholderText="Pick a grade"
-                  Visibility="{Binding IsHigherToggled,
+                  SelectedValue="{Binding SelectedHigherGrade,
+                                          Mode=TwoWay}"
+                  Visibility="{Binding IsHigher,
                                        Mode=TwoWay,
                                        Converter={StaticResource BoolToVisibilityConverter}}" />
 
@@ -98,14 +100,14 @@
                       Grid.Row="3"
                       HorizontalAlignment="Left"
                       Content="Higher"
-                      IsChecked="{Binding IsHigherToggled,
+                      IsChecked="{Binding IsHigher,
                                           Mode=TwoWay}" />
         <ToggleButton x:Name="ordinaryTglBtn"
                       Grid.Row="3"
                       Grid.ColumnSpan="2"
                       HorizontalAlignment="Center"
                       Content="Ordinary"
-                      IsChecked="{Binding IsOrdinaryToggled,
+                      IsChecked="{Binding IsOrdinary,
                                           Mode=TwoWay}" />
 
         <TextBlock Grid.Row="5"

@@ -35,6 +35,8 @@ namespace LC_Points.ViewModel
             GetSubjectTypes();
             GetOrdinaryGradePairs();
             GetHigherGradePairs();
+
+
         }
 
 
@@ -46,41 +48,42 @@ namespace LC_Points.ViewModel
         public List<StringKeyValue> OrdinaryGradePointKV { get; set; }
 
         public ScoreModel SelectedSubject { get; set; }
-        public StringKeyValue SelectedGrade { get; set; }
+        public StringKeyValue SelectedOrdinaryGrade { get; set; }
+        public StringKeyValue SelectedHigherGrade { get; set; }
+
 
      
 
 
         //ordinary toggle button bool
-        private bool _isOrdinaryToggled;
-        public bool IsOrdinaryToggled
+        private bool _isOrdinary;
+        public bool IsOrdinary
         {
             get
             {
-                return _isOrdinaryToggled;
+                return _isOrdinary;
             }
             set
             {
-                _isOrdinaryToggled = value;
-                RaisePropertyChanged("IsOrdinaryToggled");
+                _isOrdinary = value;
+                RaisePropertyChanged("IsOrdinary");
             }
         }
 
 
 
         //Higher toggle button bool property
-        private bool _isHigherToggled;
-        public bool IsHigherToggled
+        private bool _isHigher;
+        public bool IsHigher
         {
             get
             {
-                return _isHigherToggled;
+                return _isHigher;
             }
             set
             {
-                _isHigherToggled = value;
-                RaisePropertyChanged("IsHigherToggled");
-                //RaisePropertyChanged("GradePointKV");
+                _isHigher = value;
+                RaisePropertyChanged("IsHigher");
             }
         }
 
@@ -91,19 +94,15 @@ namespace LC_Points.ViewModel
         public void AddSubjectAndGrade()
         {
 
-            ObservableCollection<ScoreModel> a = new ObservableCollection<ScoreModel>();
-
-
             string SelectedSubjectName = "null data";
             int SelectedPoints = 01;
 
 
             SelectedSubjectName = SelectedSubject.Subject;
-            SelectedPoints = SelectedGrade.Value;
 
-            a.Add(new ScoreModel() { Subject = SelectedSubjectName, Points = SelectedPoints });
+            SelectedPoints = IsHigher ? SelectedHigherGrade.Value : SelectedOrdinaryGrade.Value;
 
-            AddedSubjectGradePairs = a;
+            AddedSubjectGradePairs.Add(new ScoreModel() { Subject = SelectedSubjectName, Points = SelectedPoints });
 
         }
 
