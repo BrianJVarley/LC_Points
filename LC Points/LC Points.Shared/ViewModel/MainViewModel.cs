@@ -107,6 +107,23 @@ namespace LC_Points.ViewModel
 
         }
 
+
+        //Method to calculate the points result
+        public void CalculateLeavingCertPoints()
+        {
+
+            //Logic:
+            //IF 6 subjects and grades
+            //add 6 grade points
+            //output result of addition
+            
+
+
+
+        }
+
+
+       
         
         RelayCommand addGradeCommand;
         public RelayCommand AddGradeCommand
@@ -122,6 +139,28 @@ namespace LC_Points.ViewModel
                     });
                 }
                 return addGradeCommand;
+            }
+        }
+
+
+
+
+
+        RelayCommand clearGradesCommand;
+        public RelayCommand ClearGradesCommand
+        {
+            get
+            {
+                if (clearGradesCommand == null)
+                {
+                    clearGradesCommand = new RelayCommand(() =>
+                    {
+                        //call to empty collection items
+                        AddedSubjectGradePairs.Clear();
+
+                    });
+                }
+                return clearGradesCommand;
             }
         }
          

@@ -121,6 +121,7 @@
         <CommandBar x:Name="appBar" IsSticky="True">
             <CommandBar.PrimaryCommands>
                 <AppBarButton x:Name="ClearAppBarButton"
+                              Command="{Binding Path=ClearGradesCommand}"
                               Icon="Delete"
                               IsCompact="False"
                               Label="Clear All" />
