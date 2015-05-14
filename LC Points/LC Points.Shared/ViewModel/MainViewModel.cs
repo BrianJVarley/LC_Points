@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
+using System.Linq;
 
 namespace LC_Points.ViewModel
 {
@@ -51,7 +52,7 @@ namespace LC_Points.ViewModel
         public StringKeyValue SelectedOrdinaryGrade { get; set; }
         public StringKeyValue SelectedHigherGrade { get; set; }
 
-
+        private int totalPoints;
      
 
 
@@ -104,18 +105,29 @@ namespace LC_Points.ViewModel
 
             AddedSubjectGradePairs.Add(new ScoreModel() { Subject = SelectedSubjectName, Points = SelectedPoints });
 
+
+            if(AddedSubjectGradePairs.Count >= 6)
+            {
+                CalculateLeavingCertPoints();
+            }
+
+            
+
+
         }
 
 
         //Method to calculate the points result
-        public void CalculateLeavingCertPoints()
+        public int CalculateLeavingCertPoints()
         {
 
             //Logic:
             //IF 6 subjects and grades
             //add 6 grade points
             //output result of addition
-            
+            totalPoints = AddedSubjectGradePairs.Sum(x => x.Points);
+
+            return totalPoints;
 
 
 
