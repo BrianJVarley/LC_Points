@@ -32,16 +32,16 @@ namespace LC_Points.ViewModel
         public MainViewModel()
         {
             //call methods to initilise list data
-            GetSubjectTypes();
-            GetOrdinaryGradePairs();
-            GetHigherGradePairs();
+            InitSubjectTypes();
+            InitOrdinaryGradePairs();
+            InitHigherGradePairs();
 
+            AddedSubjectGradePairs = new ObservableCollection<ScoreModel>();
 
         }
 
 
         public ObservableCollection<ScoreModel> AddedSubjectGradePairs { get; set; }
-
 
         public List<ScoreModel> Subjects { get; set; }
         public List<StringKeyValue> HigherGradePointKV { get; set; }
@@ -172,7 +172,7 @@ namespace LC_Points.ViewModel
         }
 
 
-        public void GetOrdinaryGradePairs()
+        public void InitOrdinaryGradePairs()
         {
 
             List<StringKeyValue> ordinaryGradePointKVTemp = new List<StringKeyValue>();
@@ -200,7 +200,7 @@ namespace LC_Points.ViewModel
         }
 
 
-        public void GetHigherGradePairs()
+        public void InitHigherGradePairs()
         {
 
             List<StringKeyValue> higherGradePointKVTemp = new List<StringKeyValue>();
@@ -228,7 +228,7 @@ namespace LC_Points.ViewModel
 
 
 
-        public void GetSubjectTypes()
+        public void InitSubjectTypes()
         {
             List<ScoreModel> subjectList = new List<ScoreModel>();
 
