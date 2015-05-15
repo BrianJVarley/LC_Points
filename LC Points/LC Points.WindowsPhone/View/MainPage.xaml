@@ -115,7 +115,8 @@
                    Width="212"
                    Height="54"
                    HorizontalAlignment="Center"
-                   Text=""
+                   Text="{Binding TotalPoints,
+                                  Mode=TwoWay}"
                    TextWrapping="Wrap" />
     </Grid>
 

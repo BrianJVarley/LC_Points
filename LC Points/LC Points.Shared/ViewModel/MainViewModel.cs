@@ -52,10 +52,26 @@ namespace LC_Points.ViewModel
         public StringKeyValue SelectedOrdinaryGrade { get; set; }
         public StringKeyValue SelectedHigherGrade { get; set; }
 
-        private int totalPoints;
+
+
+
+
+        private int _totalPoints;
+        public int TotalPoints
+        {
+            get { return _totalPoints; }
+            set
+            {
+                if (value != _totalPoints)
+                {
+                    _totalPoints = value;
+                    RaisePropertyChanged("TotalPoints");
+                }
+            }
+        }
+
+
      
-
-
         //ordinary toggle button bool
         private bool _isOrdinary;
         public bool IsOrdinary
@@ -96,8 +112,7 @@ namespace LC_Points.ViewModel
         {
 
             string SelectedSubjectName = "null data";
-            int SelectedPoints = 01;
-
+            int SelectedPoints = 0;
 
             SelectedSubjectName = SelectedSubject.Subject;
 
@@ -106,30 +121,24 @@ namespace LC_Points.ViewModel
             AddedSubjectGradePairs.Add(new ScoreModel() { Subject = SelectedSubjectName, Points = SelectedPoints });
 
 
-            if(AddedSubjectGradePairs.Count >= 6)
+            if(AddedSubjectGradePairs.Count == 6)
             {
                 CalculateLeavingCertPoints();
             }
 
             
-
-
         }
 
 
         //Method to calculate the points result
-        public int CalculateLeavingCertPoints()
+        private void CalculateLeavingCertPoints()
         {
 
-            //Logic:
+           //Logic:
             //IF 6 subjects and grades
             //add 6 grade points
             //output result of addition
-            totalPoints = AddedSubjectGradePairs.Sum(x => x.Points);
-
-            return totalPoints;
-
-
+            TotalPoints = AddedSubjectGradePairs.Sum(x => x.Points);
 
         }
 
@@ -168,6 +177,7 @@ namespace LC_Points.ViewModel
                     {
                         //call to empty collection items
                         AddedSubjectGradePairs.Clear();
+                        TotalPoints = 0;
 
                     });
                 }
