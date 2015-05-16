@@ -40,13 +40,13 @@
         <Grid x:Name="ContentRoot"
               Grid.Row="1"
               Margin="19,9.5,19,0" />
-        <TextBlock HorizontalAlignment="Left"
-                   Grid.Row="1" 
-                   Grid.RowSpan="2" 
+        <TextBlock Grid.Row="1"
+                   Grid.RowSpan="2"
                    Width="400"
                    Height="300"
-                   TextWrapping="Wrap" 
-                   Text="" 
-                   VerticalAlignment="Top"/>
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Text=""
+                   TextWrapping="Wrap" />
     </Grid>
 </Page>
