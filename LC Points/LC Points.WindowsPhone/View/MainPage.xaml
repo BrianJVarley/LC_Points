@@ -51,10 +51,18 @@
                   VerticalAlignment="Top"
                   DisplayMemberPath="Subject"
                   Header="Subjects"
-                  ItemsSource="{Binding Subjects}"
                   PlaceholderText="Pick a subject"
                   SelectedItem="{Binding SelectedSubject,
-                                         Mode=TwoWay}" />
+                                         Mode=TwoWay}" >
+           
+        </ComboBox>
+
+        <ListView x:Name="selectedGradesListView" 
+                  HorizontalAlignment="Left" 
+                  Grid.Row="1"
+                  Height="400" 
+                  Width="400"
+                  Visibility="Collapsed"/>
 
 
 
@@ -129,6 +137,10 @@
                               Icon="Delete"
                               IsCompact="False"
                               Label="Clear All" />
+                <AppBarButton x:Name="ViewListAppBarButton"
+                              Icon="ViewAll"
+                              IsCompact="False"
+                              Label="View" />
                 <AppBarButton x:Name="AboutAppBarButton"
                               Icon="Help"
                               IsCompact="False"
