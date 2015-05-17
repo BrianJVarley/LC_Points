@@ -40,12 +40,14 @@
         <Grid x:Name="ContentRoot"
               Grid.Row="1"
               Margin="19,9.5,19,0" />
-        <TextBlock Grid.Row="1"
-                   Grid.RowSpan="2"
+        <TextBlock x:Uid="About"
+                   Grid.Row="1"
+                   Grid.RowSpan="4"
                    Width="400"
-                   Height="300"
+                   Height="750"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
+                   FontSize="23"
                    Text=""
                    TextWrapping="Wrap" />
     </Grid>
