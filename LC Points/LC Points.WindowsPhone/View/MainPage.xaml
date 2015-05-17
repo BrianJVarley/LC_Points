@@ -53,16 +53,18 @@
                   Header="Subjects"
                   PlaceholderText="Pick a subject"
                   SelectedItem="{Binding SelectedSubject,
-                                         Mode=TwoWay}" >
-           
-        </ComboBox>
+                                         Mode=TwoWay}" />
 
-        <ListView x:Name="selectedGradesListView" 
-                  HorizontalAlignment="Left" 
+        <ListView x:Name="selectedGradesListView"
                   Grid.Row="1"
-                  Height="400" 
                   Width="400"
-                  Visibility="Collapsed"/>
+                  Height="400"
+                  HorizontalAlignment="Left"
+                  ItemsSource="{Binding AddedSubjectGradePairs,
+                                        Mode=TwoWay}"
+                  Visibility="{Binding ViewBtnClicked,
+                                       Mode=TwoWay,
+                                       Converter={StaticResource BoolToVisibilityConverter}}" />
 
 
 

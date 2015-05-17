@@ -71,6 +71,23 @@ namespace LC_Points.ViewModel
         }
 
 
+
+
+        private bool _viewBtnClicked;
+        public bool ViewBtnClicked
+        {
+            get
+            {
+                return _viewBtnClicked;
+            }
+            set
+            {
+                _viewBtnClicked = value;
+                RaisePropertyChanged("ViewBtnClicked");
+            }
+        }
+
+
      
         //ordinary toggle button bool
         private bool _isOrdinary;
@@ -143,7 +160,25 @@ namespace LC_Points.ViewModel
         }
 
 
-       
+
+        RelayCommand viewGradesCommand;
+        public RelayCommand ViewGradesCommand
+        {
+            get
+            {
+                if (viewGradesCommand == null)
+                {
+                    viewGradesCommand = new RelayCommand(() =>
+                    {
+                        
+
+                    });
+                }
+                return viewGradesCommand;
+            }
+        }
+
+
         
         RelayCommand addGradeCommand;
         public RelayCommand AddGradeCommand
