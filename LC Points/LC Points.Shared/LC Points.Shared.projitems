@@ -22,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AboutViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewSubjectGradeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en-US\Resources.resw" />

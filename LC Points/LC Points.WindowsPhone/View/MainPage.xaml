@@ -51,21 +51,10 @@
                   VerticalAlignment="Top"
                   DisplayMemberPath="Subject"
                   Header="Subjects"
+                  ItemsSource="{Binding Subjects}"
                   PlaceholderText="Pick a subject"
                   SelectedItem="{Binding SelectedSubject,
                                          Mode=TwoWay}" />
-
-        <ListView x:Name="selectedGradesListView"
-                  Grid.Row="1"
-                  Width="400"
-                  Height="400"
-                  HorizontalAlignment="Left"
-                  ItemsSource="{Binding AddedSubjectGradePairs,
-                                        Mode=TwoWay}"
-                  Visibility="{Binding ViewBtnClicked,
-                                       Mode=TwoWay,
-                                       Converter={StaticResource BoolToVisibilityConverter}}" />
-
 
 
         <ComboBox x:Name="ordinaryGradeCmbBx"
@@ -142,7 +131,13 @@
                 <AppBarButton x:Name="ViewListAppBarButton"
                               Icon="ViewAll"
                               IsCompact="False"
-                              Label="View" />
+                              Label="View">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="LC_Points.View.ViewSubjectGradePage" />
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </AppBarButton>
                 <AppBarButton x:Name="AboutAppBarButton"
                               Icon="Help"
                               IsCompact="False"

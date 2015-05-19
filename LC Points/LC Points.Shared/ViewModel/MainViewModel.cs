@@ -22,16 +22,16 @@ namespace LC_Points.ViewModel
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : ViewModelBase 
     {
-      
-  
 
+     
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel()
         {
+
             //call methods to initilise list data
             InitSubjectTypes();
             InitOrdinaryGradePairs();
@@ -70,25 +70,7 @@ namespace LC_Points.ViewModel
             }
         }
 
-
-
-
-        private bool _viewBtnClicked;
-        public bool ViewBtnClicked
-        {
-            get
-            {
-                return _viewBtnClicked;
-            }
-            set
-            {
-                _viewBtnClicked = value;
-                RaisePropertyChanged("ViewBtnClicked");
-            }
-        }
-
-
-     
+    
         //ordinary toggle button bool
         private bool _isOrdinary;
         public bool IsOrdinary
@@ -170,7 +152,6 @@ namespace LC_Points.ViewModel
                 {
                     viewGradesCommand = new RelayCommand(() =>
                     {
-                        
 
                     });
                 }
