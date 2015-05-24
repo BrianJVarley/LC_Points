@@ -3,14 +3,17 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
       xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:Series="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
+      xmlns:charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
+      xmlns:controls="using:WinRTXamlToolkit.Controls"
       xmlns:converter="using:LC_Points.Converter"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:datavis="using:WinRTXamlToolkit.Controls.DataVisualization"
       xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       xmlns:local="using:LC_Points"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-      DataContext="{Binding Source={StaticResource Locator}}"
       mc:Ignorable="d">
 
     <Page.Resources>
@@ -33,7 +36,6 @@
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
-        <!--  TitlePanel contains the name of the application and page title  -->
         <StackPanel x:Name="TitlePanel"
                     Grid.Row="0"
                     Margin="12,17,0,28">
@@ -43,6 +45,7 @@
                        Style="{StaticResource HeaderTextBlockStyle}"
                        Text="Home" />
         </StackPanel>
+        <!--  TitlePanel contains the name of the application and page title  -->
         <ComboBox x:Name="subjectCmbBx"
                   Grid.Row="1"
                   Grid.ColumnSpan="2"
@@ -110,14 +113,29 @@
                       IsChecked="{Binding IsOrdinary,
                                           Mode=TwoWay}" />
 
-        <TextBlock Grid.Row="5"
-                   Grid.ColumnSpan="3"
-                   Width="212"
-                   Height="54"
-                   HorizontalAlignment="Center"
-                   Text="{Binding TotalPoints,
-                                  Mode=TwoWay}"
-                   TextWrapping="Wrap" />
+        <Border Grid.Row="4"
+                Grid.RowSpan="2"
+                Width="400"
+                Grid.ColumnSpan="2"
+                Margin="0"
+                Background="Black">
+            <controls:Gauge Width="350"
+                            Height="120"
+                            Maximum="600"
+                            Minimum="0"
+                            NeedleBrush="Transparent"
+                            ScaleBrush="DarkSlateGray"
+                            ScaleTickBrush="Black"
+                            TickBrush="Transparent"
+                            TrailBrush="DarkSeaGreen"
+                            Unit="Leaving Cert Points"
+                            UnitBrush="DarkGray"
+                            ValueBrush="DarkSeaGreen"
+                            ValueStringFormat="N1"
+                            Value="{Binding TotalPoints,
+                                            Mode=TwoWay}" />
+        </Border>
+        
     </Grid>
 
     <Page.BottomAppBar>
@@ -129,6 +147,7 @@
                               IsCompact="False"
                               Label="Clear All" />
                 <AppBarButton x:Name="ViewListAppBarButton"
+                              Command="{Binding Path=AddGradeCommand}"
                               Icon="ViewAll"
                               IsCompact="False"
                               Label="View">

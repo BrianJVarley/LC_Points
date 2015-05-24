@@ -6,8 +6,6 @@
       xmlns:local="using:LC_Points.View"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       x:Name="pageRoot"
-      DataContext="{Binding DefaultViewModel,
-                            RelativeSource={RelativeSource Self}}"
       mc:Ignorable="d">
 
     <Page.Resources>

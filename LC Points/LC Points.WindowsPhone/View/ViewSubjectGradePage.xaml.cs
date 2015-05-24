@@ -1,4 +1,6 @@
 ﻿using LC_Points.Common;
+using LC_Points.Model;
+using LC_Points.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,6 +30,8 @@ namespace LC_Points.View
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
+        private ViewSubjectGradeViewModel ViewModel = new ViewSubjectGradeViewModel(); 
+
         public ViewSubjectGradePage()
         {
             this.InitializeComponent();
@@ -35,6 +39,9 @@ namespace LC_Points.View
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
+            ViewModel = new ViewSubjectGradeViewModel();
+            this.DataContext = ViewModel;
         }
 
         /// <summary>
@@ -45,6 +52,7 @@ namespace LC_Points.View
             get { return this.navigationHelper; }
         }
 
+
         /// <summary>
         /// Gets the view model for this <see cref="Page"/>.
         /// This can be changed to a strongly typed view model.
@@ -53,6 +61,7 @@ namespace LC_Points.View
         {
             get { return this.defaultViewModel; }
         }
+     
 
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also

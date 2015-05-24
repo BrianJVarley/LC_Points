@@ -21,7 +21,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\ScoreModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AboutViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewSubjectGradeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

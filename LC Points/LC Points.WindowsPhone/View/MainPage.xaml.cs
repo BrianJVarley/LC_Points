@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WinRTXamlToolkit.Controls.DataVisualization.Charting;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,14 +27,19 @@ namespace LC_Points
     {
 
 
-        private MainViewModel vm;
+        private MainViewModel ViewModel;
 
         public MainPage()
         {
             this.InitializeComponent();
             this.NavigationCacheMode = NavigationCacheMode.Required;
-            //vm = new MainViewModel();
+            ViewModel = new MainViewModel();
+            this.DataContext = ViewModel;
+
         }
+
+
+      
 
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
@@ -45,6 +51,8 @@ namespace LC_Points
 
             
         }
+
+
         
         
     }

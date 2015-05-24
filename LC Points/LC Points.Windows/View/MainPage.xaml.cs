@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LC_Points.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,13 @@ namespace LC_Points
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private MainViewModel ViewModel;
+
         public MainPage()
         {
             this.InitializeComponent();
+            ViewModel = new MainViewModel();
+            this.DataContext = ViewModel;
         }
     }
 }

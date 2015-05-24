@@ -54,7 +54,7 @@ namespace LC_Points.ViewModel
 
 
 
-
+        
 
         private int _totalPoints;
         public int TotalPoints
@@ -113,14 +113,18 @@ namespace LC_Points.ViewModel
             string SelectedSubjectName = "null data";
             int SelectedPoints = 0;
 
-            SelectedSubjectName = SelectedSubject.Subject;
+
+            if (SelectedSubject.Subject != null)
+            {
+                SelectedSubjectName = SelectedSubject.Subject;
+            }
 
             SelectedPoints = IsHigher ? SelectedHigherGrade.Value : SelectedOrdinaryGrade.Value;
 
             AddedSubjectGradePairs.Add(new ScoreModel() { Subject = SelectedSubjectName, Points = SelectedPoints });
 
 
-            if(AddedSubjectGradePairs.Count == 6)
+            if(AddedSubjectGradePairs.Count <= 6)
             {
                 CalculateLeavingCertPoints();
             }
@@ -152,7 +156,7 @@ namespace LC_Points.ViewModel
                 {
                     viewGradesCommand = new RelayCommand(() =>
                     {
-
+                        ViewSubjectGradeViewModel subjectGradeObj = new ViewSubjectGradeViewModel(AddedSubjectGradePairs);
                     });
                 }
                 return viewGradesCommand;

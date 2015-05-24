@@ -2,10 +2,4 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:LC_Points.ViewModel"
-             RequestedTheme="Light">
-
-    <Application.Resources>
-        <local:MainViewModel x:Key="Locator" />
-    </Application.Resources>
-
-</Application>
+             RequestedTheme="Light" />

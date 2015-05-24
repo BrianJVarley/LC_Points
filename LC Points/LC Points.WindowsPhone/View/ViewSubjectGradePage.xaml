@@ -41,12 +41,19 @@
               Grid.Row="1"
               Margin="19,9.5,19,0">
 
-            <ListView x:Name="subjectGradeList"
-                      Grid.Row="1"
-                      Width="350"
-                      Height="400"
-                      HorizontalAlignment="Left"
-                      Visibility="Visible" />
+            <ListBox Height="400"
+                     Margin="0,0,0,-329"
+                     VerticalAlignment="Top"
+                     ItemsSource="{Binding AddedSubjectGradePairsCopy}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <Run Text="{Binding Subject}" /><Run Text=" - " /><Run Text="{Binding Points}" />
+                        </TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
         </Grid>
     </Grid>
 </Page>

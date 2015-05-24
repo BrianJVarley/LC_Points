@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LC_Points.ViewModel
 {
-    class AboutViewModel : ViewModelBase
+    public class AboutViewModel : ViewModelBase
     {
     }
 }

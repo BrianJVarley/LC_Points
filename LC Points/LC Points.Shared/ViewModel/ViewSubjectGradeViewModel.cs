@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Ioc;
+using LC_Points.Model;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,32 +8,29 @@ using System.Text;
 
 namespace LC_Points.ViewModel
 {
-    class ViewSubjectGradeViewModel 
+    public class ViewSubjectGradeViewModel 
     {
 
-        //public IEnumerable<MainViewModel> AddedSubjectGradePairsCopy = new ObservableCollection<MainViewModel>();
+         
+        public ViewSubjectGradeViewModel()
+        {
+            
+
+        }
 
          /// <summary>
         /// Initializes a new instance of the ViewSubjectGradeViewModel class.
         /// </summary>
-        public ViewSubjectGradeViewModel(IEnumerable<MainViewModel> AddedSubjectGradePairs)
+        public ViewSubjectGradeViewModel(IEnumerable<ScoreModel> addedSubjectGradePairs)
         {
-            AddedSubjectGradePairsCopy = AddedSubjectGradePairs;
+            this.AddedSubjectGradePairsCopy = addedSubjectGradePairs;
            
         }
 
 
-        public IEnumerable<MainViewModel> AddedSubjectGradePairsCopy { get; set; }
+        //Property for collection passed from MainViewModel
+        public IEnumerable<ScoreModel> AddedSubjectGradePairsCopy { get; set; }
 
         
-
-
-
-        
-
-
-
-        
-
     }
 }

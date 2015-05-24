@@ -1,4 +1,5 @@
 ﻿using LC_Points.Common;
+using LC_Points.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -32,6 +33,8 @@ namespace LC_Points.View
 
         string APP_ID = CurrentApp.AppId.ToString();
 
+        private AboutViewModel ViewModel;
+
 
         public AboutPage()
         {
@@ -42,6 +45,9 @@ namespace LC_Points.View
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
 
             Launcher.LaunchUriAsync(new Uri("ms-windows-store:reviewapp?appid=" + APP_ID));
+
+            ViewModel = new AboutViewModel();
+            this.DataContext = ViewModel;
 
         }
 
