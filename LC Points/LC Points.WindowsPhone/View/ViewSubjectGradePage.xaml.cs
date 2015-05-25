@@ -30,7 +30,7 @@ namespace LC_Points.View
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
-        private ViewSubjectGradeViewModel ViewModel = new ViewSubjectGradeViewModel(); 
+        private ViewSubjectGradeViewModel ViewModel;
 
         public ViewSubjectGradePage()
         {

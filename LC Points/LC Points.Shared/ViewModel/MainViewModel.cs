@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 using System.Linq;
+using Windows.UI.Popups;
 
 namespace LC_Points.ViewModel
 {
@@ -48,11 +49,59 @@ namespace LC_Points.ViewModel
         public List<StringKeyValue> HigherGradePointKV { get; set; }
         public List<StringKeyValue> OrdinaryGradePointKV { get; set; }
 
-        public ScoreModel SelectedSubject { get; set; }
-        public StringKeyValue SelectedOrdinaryGrade { get; set; }
-        public StringKeyValue SelectedHigherGrade { get; set; }
 
 
+
+        private ScoreModel _selectedSubject;
+        public ScoreModel SelectedSubject
+        {
+            get { return _selectedSubject; }
+            set
+            {
+                if (value != _selectedSubject)
+                {
+                    _selectedSubject = value;
+                    RaisePropertyChanged("SelectedSubject");
+                    ButtonEnabled = true;
+                }
+            }
+        }
+
+
+
+        private StringKeyValue _selectedHigherGrade;
+        public StringKeyValue SelectedHigherGrade
+        {
+            get { return _selectedHigherGrade; }
+            set
+            {
+                if (value != _selectedHigherGrade)
+                {
+                    _selectedHigherGrade = value;
+                    RaisePropertyChanged("SelectedHigherGrade");
+                    ButtonEnabled = true;
+
+                }
+            }
+        }
+
+
+
+        private StringKeyValue _selectedOrdinaryGrade;
+        public StringKeyValue SelectedOrdinaryGrade
+        {
+            get { return _selectedOrdinaryGrade; }
+            set
+            {
+                if (value != _selectedOrdinaryGrade)
+                {
+                    _selectedOrdinaryGrade = value;
+                    RaisePropertyChanged("SelectedOrdinaryGrade");
+                    ButtonEnabled = true;
+
+                }
+            }
+        }
 
         
 
@@ -67,6 +116,23 @@ namespace LC_Points.ViewModel
                     _totalPoints = value;
                     RaisePropertyChanged("TotalPoints");
                 }
+            }
+        }
+
+
+
+        //button enabled bool
+        private bool _buttonEnabled;
+        public bool ButtonEnabled
+        {
+            get
+            {
+                return _buttonEnabled;
+            }
+            set
+            {
+                _buttonEnabled = value;
+                RaisePropertyChanged("ButtonEnabled");
             }
         }
 
@@ -110,15 +176,13 @@ namespace LC_Points.ViewModel
         public void AddSubjectAndGrade()
         {
 
-            string SelectedSubjectName = "null data";
+            string SelectedSubjectName = "null subject";
             int SelectedPoints = 0;
 
-
-            if (SelectedSubject.Subject != null)
-            {
-                SelectedSubjectName = SelectedSubject.Subject;
-            }
-
+           
+            SelectedSubjectName = SelectedSubject.Subject;
+           
+         
             SelectedPoints = IsHigher ? SelectedHigherGrade.Value : SelectedOrdinaryGrade.Value;
 
             AddedSubjectGradePairs.Add(new ScoreModel() { Subject = SelectedSubjectName, Points = SelectedPoints });

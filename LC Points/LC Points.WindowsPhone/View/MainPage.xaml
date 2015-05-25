@@ -97,30 +97,36 @@
                 Grid.Row="2"
                 HorizontalAlignment="Left"
                 Command="{Binding Path=AddGradeCommand}"
-                Content="Add Grade" />
+                Content="Add Grade"
+                IsEnabled="{Binding ButtonEnabled,
+                                          Mode=TwoWay}"/>
 
         <ToggleButton x:Name="higherTglBtn"
-                      Grid.Row="3"
-                      HorizontalAlignment="Left"
+                      Grid.Row="2"
+                      Grid.ColumnSpan="2"
+                      Margin="0,26.5,114,25.667"
+                      HorizontalAlignment="Right"
                       Content="Higher"
                       IsChecked="{Binding IsHigher,
                                           Mode=TwoWay}" />
         <ToggleButton x:Name="ordinaryTglBtn"
-                      Grid.Row="3"
+                      Grid.Row="2"
                       Grid.ColumnSpan="2"
-                      HorizontalAlignment="Center"
+                      HorizontalAlignment="Right"
                       Content="Ordinary"
                       IsChecked="{Binding IsOrdinary,
                                           Mode=TwoWay}" />
 
-        <Border Grid.Row="4"
-                Grid.RowSpan="2"
-                Width="400"
+        <Border Grid.Row="3"
+                Grid.RowSpan="3"
                 Grid.ColumnSpan="2"
+                Width="400"
                 Margin="0"
                 Background="Black">
-            <controls:Gauge Width="350"
-                            Height="120"
+            <controls:Gauge Grid.Row="3"
+                            Grid.RowSpan="3"
+                            Grid.ColumnSpan="2"
+                            Width="400"
                             Maximum="600"
                             Minimum="0"
                             NeedleBrush="Transparent"
@@ -135,7 +141,7 @@
                             Value="{Binding TotalPoints,
                                             Mode=TwoWay}" />
         </Border>
-        
+
     </Grid>
 
     <Page.BottomAppBar>
