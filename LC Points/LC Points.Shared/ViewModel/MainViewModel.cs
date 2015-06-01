@@ -82,6 +82,10 @@ namespace LC_Points.ViewModel
                     ButtonEnabled = true;
 
                 }
+                else
+                {
+                    ButtonEnabled = false;
+                }
             }
         }
 
@@ -99,6 +103,10 @@ namespace LC_Points.ViewModel
                     RaisePropertyChanged("SelectedOrdinaryGrade");
                     ButtonEnabled = true;
 
+                }
+                else
+                {
+                    ButtonEnabled = false;
                 }
             }
         }

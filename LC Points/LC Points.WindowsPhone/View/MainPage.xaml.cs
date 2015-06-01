@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WinRTXamlToolkit.Controls.DataVisualization.Charting;
 
+
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace LC_Points
@@ -28,6 +29,8 @@ namespace LC_Points
 
 
         private MainViewModel ViewModel;
+
+
 
         public MainPage()
         {

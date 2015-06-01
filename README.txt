@@ -2,14 +2,7 @@ LC Points - Is a Windows Universal application that calculates Irish Leaving Cer
 also offers options to share your result on Facebook.
 
 
-
-#Technologies Used:
-
-Windows Universal Framework
-
-MVVM Light Libraries
-
-Facebook API
+http://brianjvarley.github.io/LC_Points/
 
 
 

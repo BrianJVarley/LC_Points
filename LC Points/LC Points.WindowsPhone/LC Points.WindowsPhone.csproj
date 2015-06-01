@@ -87,6 +87,9 @@
     <Compile Include="View\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -125,6 +132,9 @@
   <ItemGroup>
     <Reference Include="Facebook">
       <HintPath>..\..\packages\Facebook.7.0.6\lib\portable-win81+wpa81\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Client">
+      <HintPath>..\..\packages\Facebook.Client.1.0.3\lib\wpa81\Facebook.Client.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight">
       <HintPath>..\..\packages\MvvmLightLibs.5.1.1.0\lib\wpa81\GalaSoft.MvvmLight.dll</HintPath>
