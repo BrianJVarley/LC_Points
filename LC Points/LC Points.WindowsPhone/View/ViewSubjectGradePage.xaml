@@ -6,6 +6,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vms="using:LC_Points.ViewModel"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+      DataContext="{Binding ViewSubjectGradeViewModelProperty}"
       mc:Ignorable="d">
 
 
@@ -47,7 +48,7 @@
             <ListBox Height="400"
                      Margin="0,0,0,-329"
                      VerticalAlignment="Top"
-                     ItemsSource="{Binding AddedSubjectGradePairsCopy}">
+                     ItemsSource="{Binding AddedSubjectGradePairs}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock>

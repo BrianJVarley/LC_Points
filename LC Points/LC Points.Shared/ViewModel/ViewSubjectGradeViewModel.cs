@@ -11,26 +11,19 @@ namespace LC_Points.ViewModel
     public class ViewSubjectGradeViewModel 
     {
 
-         
-        public ViewSubjectGradeViewModel()
-        {
-            
-
-        }
-
+              
          /// <summary>
         /// Initializes a new instance of the ViewSubjectGradeViewModel class.
         /// </summary>
-        public ViewSubjectGradeViewModel(IEnumerable<ScoreModel> addedSubjectGradePairs)
+        public ViewSubjectGradeViewModel()
         {
-            this.AddedSubjectGradePairsCopy = addedSubjectGradePairs;
-           
+
+            AddedSubjectGradePairs = new ObservableCollection<ScoreModel>();
+     
         }
 
 
-        //Property for collection passed from MainViewModel
-        public IEnumerable<ScoreModel> AddedSubjectGradePairsCopy { get; set; }
-
+        public ObservableCollection<ScoreModel> AddedSubjectGradePairs { get; set; }       
         
     }
 }

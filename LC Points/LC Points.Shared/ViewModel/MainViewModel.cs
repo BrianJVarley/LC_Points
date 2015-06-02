@@ -38,19 +38,21 @@ namespace LC_Points.ViewModel
             InitOrdinaryGradePairs();
             InitHigherGradePairs();
 
-            AddedSubjectGradePairs = new ObservableCollection<ScoreModel>();
+            ViewSubjectGradeViewModelProperty = new ViewSubjectGradeViewModel();
+
 
         }
 
 
-        public ObservableCollection<ScoreModel> AddedSubjectGradePairs { get; set; }
+        private ViewSubjectGradeViewModel _viewSubjectGradeViewModel;
+        public ViewSubjectGradeViewModel ViewSubjectGradeViewModelProperty;
 
         public List<ScoreModel> Subjects { get; set; }
         public List<StringKeyValue> HigherGradePointKV { get; set; }
         public List<StringKeyValue> OrdinaryGradePointKV { get; set; }
 
 
-
+        
 
         private ScoreModel _selectedSubject;
         public ScoreModel SelectedSubject
@@ -193,10 +195,10 @@ namespace LC_Points.ViewModel
          
             SelectedPoints = IsHigher ? SelectedHigherGrade.Value : SelectedOrdinaryGrade.Value;
 
-            AddedSubjectGradePairs.Add(new ScoreModel() { Subject = SelectedSubjectName, Points = SelectedPoints });
+            ViewSubjectGradeViewModelProperty.AddedSubjectGradePairs.Add(new ScoreModel() { Subject = SelectedSubjectName, Points = SelectedPoints });
 
 
-            if(AddedSubjectGradePairs.Count <= 6)
+            if (ViewSubjectGradeViewModelProperty.AddedSubjectGradePairs.Count <= 6)
             {
                 CalculateLeavingCertPoints();
             }
@@ -213,7 +215,7 @@ namespace LC_Points.ViewModel
             //IF 6 subjects and grades
             //add 6 grade points
             //output result of addition
-            TotalPoints = AddedSubjectGradePairs.Sum(x => x.Points);
+            TotalPoints = ViewSubjectGradeViewModelProperty.AddedSubjectGradePairs.Sum(x => x.Points);
 
         }
 
@@ -228,7 +230,7 @@ namespace LC_Points.ViewModel
                 {
                     viewGradesCommand = new RelayCommand(() =>
                     {
-                        ViewSubjectGradeViewModel subjectGradeObj = new ViewSubjectGradeViewModel(AddedSubjectGradePairs);
+                        //do something...
                     });
                 }
                 return viewGradesCommand;
@@ -268,7 +270,7 @@ namespace LC_Points.ViewModel
                     clearGradesCommand = new RelayCommand(() =>
                     {
                         //call to empty collection items
-                        AddedSubjectGradePairs.Clear();
+                        ViewSubjectGradeViewModelProperty.AddedSubjectGradePairs.Clear();
                         TotalPoints = 0;
 
                     });
