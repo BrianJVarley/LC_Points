@@ -45,7 +45,7 @@ namespace LC_Points.ViewModel
 
 
         private ViewSubjectGradeViewModel _viewSubjectGradeViewModel;
-        public ViewSubjectGradeViewModel ViewSubjectGradeViewModelProperty;
+        public ViewSubjectGradeViewModel ViewSubjectGradeViewModelProperty { get; set; }
 
         public List<ScoreModel> Subjects { get; set; }
         public List<StringKeyValue> HigherGradePointKV { get; set; }

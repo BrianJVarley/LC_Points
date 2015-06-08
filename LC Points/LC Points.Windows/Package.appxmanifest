@@ -1,38 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-
-  <Identity Name="14a1d352-7cf8-4a14-9787-81648640b86a"
-            Publisher="CN=Brian"
-            Version="1.0.0.0" />
-
+  <Identity Name="47582BrianVarley.LCPoints" Publisher="CN=9A4AAF2D-CB7C-4F22-9A0B-6F983D906BAA" Version="1.1.0.0" />
   <Properties>
-    <DisplayName>LC Points.Windows</DisplayName>
-    <PublisherDisplayName>Brian</PublisherDisplayName>
+    <DisplayName>LC Points</DisplayName>
+    <PublisherDisplayName>Brian Varley</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
-
   <Prerequisites>
     <OSMinVersion>6.3.0</OSMinVersion>
     <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
   </Prerequisites>
-
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application Id="App"
-        Executable="$targetnametoken$.exe"
-        EntryPoint="LC_Points.Windows.App">
-        <m2:VisualElements
-            DisplayName="LC Points.Windows"
-            Square150x150Logo="Assets\Logo.png"
-            Square30x30Logo="Assets\SmallLogo.png"
-            Description="LC Points.Windows"
-            ForegroundText="light"
-            BackgroundColor="#464646">
-            <m2:SplashScreen Image="Assets\SplashScreen.png" />
-        </m2:VisualElements>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="LC_Points.Windows.App">
+      <m2:VisualElements DisplayName="LC Points" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="LC Points.Windows" ForegroundText="light" BackgroundColor="#464646">
+        <m2:SplashScreen Image="Assets\SplashScreen.png" />
+      </m2:VisualElements>
     </Application>
   </Applications>
   <Capabilities>

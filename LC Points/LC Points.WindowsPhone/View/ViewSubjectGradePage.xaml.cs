@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -28,9 +29,7 @@ namespace LC_Points.View
     public sealed partial class ViewSubjectGradePage : Page
     {
         private NavigationHelper navigationHelper;
-        private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
-        private ViewSubjectGradeViewModel ViewModel;
 
         public ViewSubjectGradePage()
         {
@@ -40,8 +39,8 @@ namespace LC_Points.View
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
 
-            ViewModel = new ViewSubjectGradeViewModel();
-            this.DataContext = ViewModel;
+            this.DataContext = new ViewSubjectGradeViewModel();
+
         }
 
         /// <summary>
@@ -53,15 +52,7 @@ namespace LC_Points.View
         }
 
 
-        /// <summary>
-        /// Gets the view model for this <see cref="Page"/>.
-        /// This can be changed to a strongly typed view model.
-        /// </summary>
-        public ObservableDictionary DefaultViewModel
-        {
-            get { return this.defaultViewModel; }
-        }
-     
+       
 
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also

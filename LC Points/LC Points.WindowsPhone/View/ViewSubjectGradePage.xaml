@@ -6,9 +6,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vms="using:LC_Points.ViewModel"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-      DataContext="{Binding ViewSubjectGradeViewModelProperty}"
       mc:Ignorable="d">
-
 
 
     <Grid x:Name="LayoutRoot">
