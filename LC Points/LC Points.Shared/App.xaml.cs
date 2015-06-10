@@ -18,8 +18,8 @@ using Windows.UI.Xaml.Navigation;
 using Facebook;
 using LC_Points.Model;
 
-
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
+using LC_Points.Services;
 
 namespace LC_Points
 {
@@ -28,8 +28,9 @@ namespace LC_Points
     /// </summary>
     public sealed partial class App : Application
     {
+        public static IRepository<ScoreModel> ScoresRepository = new ScoresRepository();
 
-        
+
 #if WINDOWS_PHONE_APP
         private TransitionCollection transitions;
 #endif
