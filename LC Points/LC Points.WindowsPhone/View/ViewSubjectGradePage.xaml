@@ -43,7 +43,8 @@
               Grid.Row="1"
               Margin="19,9.5,19,0">
 
-            <ListBox Height="400"
+            <ListBox x:Name="MyList"
+                     Height="400"
                      Margin="0,0,0,-329"
                      VerticalAlignment="Top"
                      ItemsSource="{Binding AddedSubjectGradePairs}">
