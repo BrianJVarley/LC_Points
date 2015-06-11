@@ -17,10 +17,9 @@ using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using Facebook;
 using LC_Points.Model;
-using LC_Points.Common;
-
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
+using LC_Points.Services;
 
 namespace LC_Points
 {
@@ -29,8 +28,9 @@ namespace LC_Points
     /// </summary>
     public sealed partial class App : Application
     {
-        public static ContinuationManager ContinuationManager { get; private set; }
-        
+        public static IRepository<ScoreModel> ScoresRepository = new ScoresRepository();
+
+
 #if WINDOWS_PHONE_APP
         private TransitionCollection transitions;
 #endif
@@ -43,9 +43,6 @@ namespace LC_Points
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
-
-            ContinuationManager = new ContinuationManager();
-
         }
 
         /// <summary>
@@ -139,24 +136,8 @@ namespace LC_Points
         {
             var deferral = e.SuspendingOperation.GetDeferral();
 
-            ContinuationManager.MarkAsStale();
-
             // TODO: Save application state and stop any background activity
             deferral.Complete();
-        }
-
-        protected override void OnActivated(IActivatedEventArgs args)
-        {
-            if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
-            {
-                var continuationEventArgs = args as IContinuationActivatedEventArgs;
-                if (continuationEventArgs != null)
-                {
-                    ContinuationManager.Continue(continuationEventArgs);
-                    ContinuationManager.MarkAsStale();
-                }
-
-            }
         }
     }
 }

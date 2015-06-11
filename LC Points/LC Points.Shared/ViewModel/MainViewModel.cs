@@ -8,6 +8,7 @@ using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 using System.Linq;
 using Windows.UI.Popups;
+using LC_Points.Services;
 
 namespace LC_Points.ViewModel
 {
@@ -23,9 +24,9 @@ namespace LC_Points.ViewModel
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class MainViewModel : ViewModelBase 
+    public class MainViewModel : ViewModelBase
     {
-
+        private readonly IRepository<ScoreModel> _repository = App.ScoresRepository; 
      
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
@@ -37,15 +38,8 @@ namespace LC_Points.ViewModel
             InitSubjectTypes();
             InitOrdinaryGradePairs();
             InitHigherGradePairs();
-
-            ViewSubjectGradeViewModelProperty = new ViewSubjectGradeViewModel();
-
-
         }
 
-
-        private ViewSubjectGradeViewModel _viewSubjectGradeViewModel;
-        public ViewSubjectGradeViewModel ViewSubjectGradeViewModelProperty { get; set; }
 
         public List<ScoreModel> Subjects { get; set; }
         public List<StringKeyValue> HigherGradePointKV { get; set; }
@@ -195,10 +189,9 @@ namespace LC_Points.ViewModel
          
             SelectedPoints = IsHigher ? SelectedHigherGrade.Value : SelectedOrdinaryGrade.Value;
 
-            ViewSubjectGradeViewModelProperty.AddedSubjectGradePairs.Add(new ScoreModel() { Subject = SelectedSubjectName, Points = SelectedPoints });
+            _repository.Add(new ScoreModel() {Subject = SelectedSubjectName, Points = SelectedPoints});
 
-
-            if (ViewSubjectGradeViewModelProperty.AddedSubjectGradePairs.Count <= 6)
+            if (_repository.Count <= 6)
             {
                 CalculateLeavingCertPoints();
             }
@@ -215,7 +208,7 @@ namespace LC_Points.ViewModel
             //IF 6 subjects and grades
             //add 6 grade points
             //output result of addition
-            TotalPoints = ViewSubjectGradeViewModelProperty.AddedSubjectGradePairs.Sum(x => x.Points);
+            TotalPoints = _repository.Collection.Sum(x => x.Points);
 
         }
 
@@ -270,7 +263,7 @@ namespace LC_Points.ViewModel
                     clearGradesCommand = new RelayCommand(() =>
                     {
                         //call to empty collection items
-                        ViewSubjectGradeViewModelProperty.AddedSubjectGradePairs.Clear();
+                        _repository.Clear();
                         TotalPoints = 0;
 
                     });

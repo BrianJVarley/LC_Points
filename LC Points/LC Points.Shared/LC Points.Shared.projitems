@@ -18,6 +18,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Converter\BoolToNonVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converter\BoolToVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ScoreModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ScoresRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AboutViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewSubjectGradeViewModel.cs" />
