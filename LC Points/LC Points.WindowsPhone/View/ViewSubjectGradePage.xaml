@@ -47,6 +47,8 @@
                      Height="400"
                      Margin="0,0,0,-329"
                      VerticalAlignment="Top"
+                     FontSize="30"
+                     Foreground="Green"
                      ItemsSource="{Binding AddedSubjectGradePairs}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
