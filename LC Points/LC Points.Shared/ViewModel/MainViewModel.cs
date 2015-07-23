@@ -58,8 +58,10 @@ namespace LC_Points.ViewModel
                 {
                     _selectedSubject = value;
                     RaisePropertyChanged("SelectedSubject");
-                    ButtonEnabled = true;
+                    RaisePropertyChanged("ButtonEnabled");
+
                 }
+                
             }
         }
 
@@ -75,13 +77,11 @@ namespace LC_Points.ViewModel
                 {
                     _selectedHigherGrade = value;
                     RaisePropertyChanged("SelectedHigherGrade");
-                    ButtonEnabled = true;
+                    RaisePropertyChanged("ButtonEnabled");
+
 
                 }
-                else
-                {
-                    ButtonEnabled = false;
-                }
+               
             }
         }
 
@@ -97,13 +97,10 @@ namespace LC_Points.ViewModel
                 {
                     _selectedOrdinaryGrade = value;
                     RaisePropertyChanged("SelectedOrdinaryGrade");
-                    ButtonEnabled = true;
+                    RaisePropertyChanged("ButtonEnabled");
 
                 }
-                else
-                {
-                    ButtonEnabled = false;
-                }
+               
             }
         }
 
@@ -126,18 +123,12 @@ namespace LC_Points.ViewModel
 
 
         //button enabled bool
-        private bool _buttonEnabled;
         public bool ButtonEnabled
-        {
-            get
-            {
-                return _buttonEnabled;
-            }
-            set
-            {
-                _buttonEnabled = value;
-                RaisePropertyChanged("ButtonEnabled");
-            }
+        { 
+            get 
+            { 
+                return SelectedSubject != null && (SelectedOrdinaryGrade != null || SelectedHigherGrade != null); 
+            } 
         }
 
     
@@ -184,22 +175,21 @@ namespace LC_Points.ViewModel
             int SelectedPoints = 0;
 
            
-            SelectedSubjectName = SelectedSubject.Subject;
-           
+            SelectedSubjectName = SelectedSubject.Subject;           
          
             SelectedPoints = IsHigher ? SelectedHigherGrade.Value : SelectedOrdinaryGrade.Value;
 
-            _repository.Add(new ScoreModel() {Subject = SelectedSubjectName, Points = SelectedPoints});
 
-            if (_repository.Count <= 6)
+            if (_repository.Count <= 5)
             {
+                _repository.Add(new ScoreModel() {Subject = SelectedSubjectName, Points = SelectedPoints});
                 CalculateLeavingCertPoints();
             }
 
             
         }
 
-
+       
         //Method to calculate the points result
         private void CalculateLeavingCertPoints()
         {

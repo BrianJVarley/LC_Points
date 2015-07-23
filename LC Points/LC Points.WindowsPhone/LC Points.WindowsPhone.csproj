@@ -80,11 +80,11 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Common\ContinuationManager.cs" />
-    <Compile Include="Common\NavigationHelper.cs" />
-    <Compile Include="Common\ObservableDictionary.cs" />
-    <Compile Include="Common\RelayCommand.cs" />
-    <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Assets\Common\ContinuationManager.cs" />
+    <Compile Include="Assets\Common\NavigationHelper.cs" />
+    <Compile Include="Assets\Common\ObservableDictionary.cs" />
+    <Compile Include="Assets\Common\RelayCommand.cs" />
+    <Compile Include="Assets\Common\SuspensionManager.cs" />
     <Compile Include="View\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
