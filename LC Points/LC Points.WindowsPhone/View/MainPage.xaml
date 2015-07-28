@@ -72,7 +72,7 @@
                   PlaceholderText="Pick a grade"
                   SelectedValue="{Binding SelectedOrdinaryGrade,
                                           Mode=TwoWay}"
-                  Visibility="{Binding IsHigher,
+                  Visibility="{Binding IsEitherHigherVisible,
                                        Mode=TwoWay,
                                        Converter={StaticResource BoolToNonVisibilityConverter}}" />
 
@@ -93,6 +93,23 @@
                                        Converter={StaticResource BoolToVisibilityConverter}}" />
 
 
+        <ComboBox x:Name="higherMathGradeCmbBx"
+                  Grid.Row="1"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  Width="170"
+                  HorizontalAlignment="Right"
+                  DisplayMemberPath="Key"
+                  Header="Grades"
+                  ItemsSource="{Binding HigherMathGradePointKV}"
+                  PlaceholderText="Pick a grade"
+                  SelectedValue="{Binding SelectedHigherMathGrade,
+                                          Mode=TwoWay}"
+                  Visibility="{Binding IsHigherMath,
+                                       Mode=TwoWay,
+                                       Converter={StaticResource BoolToVisibilityConverter}}" />
+
+
         <Button x:Name="addGradeBtn"
                 Grid.Row="2"
                 HorizontalAlignment="Left"
@@ -109,12 +126,12 @@
                       Content="Higher"
                       IsChecked="{Binding IsHigher,
                                           Mode=TwoWay}" />
-        <ToggleButton x:Name="ordinaryTglBtn"
+        <ToggleButton x:Name="higherMathTglBtn"
                       Grid.Row="2"
                       Grid.ColumnSpan="2"
                       HorizontalAlignment="Right"
-                      Content="Ordinary"
-                      IsChecked="{Binding IsOrdinary,
+                      Content="H/Math"
+                      IsChecked="{Binding IsHigherMath,
                                           Mode=TwoWay}" />
 
         <Border Grid.Row="3"

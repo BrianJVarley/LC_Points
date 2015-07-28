@@ -38,12 +38,15 @@ namespace LC_Points.ViewModel
             InitSubjectTypes();
             InitOrdinaryGradePairs();
             InitHigherGradePairs();
+            InitHigherMathGradePairs();
         }
 
 
         public List<ScoreModel> Subjects { get; set; }
         public List<StringKeyValue> HigherGradePointKV { get; set; }
         public List<StringKeyValue> OrdinaryGradePointKV { get; set; }
+        public List<StringKeyValue> HigherMathGradePointKV { get; set; }
+
 
 
         
@@ -65,7 +68,7 @@ namespace LC_Points.ViewModel
             }
         }
 
-
+            
 
         private StringKeyValue _selectedHigherGrade;
         public StringKeyValue SelectedHigherGrade
@@ -82,6 +85,25 @@ namespace LC_Points.ViewModel
 
                 }
                
+            }
+        }
+
+
+        private StringKeyValue _selectedHigherMathGrade;
+        public StringKeyValue SelectedHigherMathGrade
+        {
+            get { return _selectedHigherMathGrade; }
+            set
+            {
+                if (value != _selectedHigherMathGrade)
+                {
+                    _selectedHigherMathGrade = value;
+                    RaisePropertyChanged("SelectedHigherMathGrade");
+                    RaisePropertyChanged("ButtonEnabled");
+
+
+                }
+
             }
         }
 
@@ -126,25 +148,39 @@ namespace LC_Points.ViewModel
         public bool ButtonEnabled
         { 
             get 
-            { 
-                return SelectedSubject != null && (SelectedOrdinaryGrade != null || SelectedHigherGrade != null); 
+            {
+                return SelectedSubject != null && (SelectedOrdinaryGrade != null || SelectedHigherGrade != null || SelectedHigherMathGrade != null); 
             } 
         }
 
     
-        //ordinary toggle button bool
-        private bool _isOrdinary;
-        public bool IsOrdinary
+        //Higher math toggle button bool
+        private bool _isHigherMath;
+        public bool IsHigherMath
         {
             get
             {
-                return _isOrdinary;
+                return _isHigherMath;
             }
             set
             {
-                _isOrdinary = value;
-                RaisePropertyChanged("IsOrdinary");
+                _isHigherMath = value;
+                RaisePropertyChanged("IsHigherMath");
+                RaisePropertyChanged("IsEitherHigherVisible");
             }
+        }
+
+
+        //Higher grades toggle button bool
+        private bool _isEitherHigherVisible;
+        public bool IsEitherHigherVisible
+        {
+            get
+            {
+                return _isHigherMath || _isHigher ;
+
+            }
+           
         }
 
 
@@ -161,6 +197,7 @@ namespace LC_Points.ViewModel
             {
                 _isHigher = value;
                 RaisePropertyChanged("IsHigher");
+                RaisePropertyChanged("IsEitherHigherVisible");
             }
         }
 
@@ -172,13 +209,15 @@ namespace LC_Points.ViewModel
         {
 
             string SelectedSubjectName = "null subject";
+            string HigherMaths = "Mathematics";
             int SelectedPoints = 0;
 
-           
+
             SelectedSubjectName = SelectedSubject.Subject;           
-         
+ 
             SelectedPoints = IsHigher ? SelectedHigherGrade.Value : SelectedOrdinaryGrade.Value;
 
+            
 
             if (_repository.Count <= 5)
             {
@@ -310,7 +349,7 @@ namespace LC_Points.ViewModel
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "B1", Value = 85 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "B2", Value = 80 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "B3", Value = 75 });
-            higherGradePointKVTemp.Add(new StringKeyValue { Key = "!!TestHigherGrades!!", Value = 70 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "C1 Higher Grades", Value = 70 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "C2", Value = 65 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "C3", Value = 60 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "D1", Value = 55 });
@@ -323,6 +362,34 @@ namespace LC_Points.ViewModel
 
 
             HigherGradePointKV = higherGradePointKVTemp;
+        }
+
+
+
+        public void InitHigherMathGradePairs()
+        {
+
+            List<StringKeyValue> higherMathGradePointKVTemp = new List<StringKeyValue>();
+
+
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "A1", Value = 125 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "A2", Value = 115 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "B1", Value = 110 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "B2", Value = 105 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "B3", Value = 100 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "C1", Value = 95 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "C2 Higher Maths", Value = 90 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "C3", Value = 85 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "D1", Value = 80 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "D2", Value = 75 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "D3", Value = 70 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "E,F,NG", Value = 0 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "Pass", Value = 30 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "Merit", Value = 50 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "Distinction", Value = 70 });
+
+
+            HigherMathGradePointKV = higherMathGradePointKVTemp;
         }
 
 
