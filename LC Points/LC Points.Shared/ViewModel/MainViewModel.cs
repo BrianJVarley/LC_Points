@@ -49,6 +49,12 @@ namespace LC_Points.ViewModel
 
 
 
+
+        public ObservableCollection<ScoreModel> AddedSubjectGradePairs
+        {
+            get { return _repository.Collection; }
+        }
+
         
 
         private ScoreModel _selectedSubject;
