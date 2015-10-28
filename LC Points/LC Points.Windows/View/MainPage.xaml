@@ -34,8 +34,10 @@
             <RowDefinition Height="20*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".1*" />
             <ColumnDefinition Width="2.5*" />
-            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width=".3*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
 
         <!--  Back button and page title  -->
@@ -58,10 +60,10 @@
         </Grid>
         <ComboBox x:Name="subjectCmbBx"
                   Grid.Row="1"
-                  Grid.ColumnSpan="2"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="1"
                   Width="199"
                   HorizontalAlignment="Left"
-                  VerticalAlignment="Top"
                   DisplayMemberPath="Subject"
                   Header="Subjects"
                   ItemsSource="{Binding Subjects}"
@@ -72,7 +74,7 @@
 
         <ComboBox x:Name="ordinaryGradeCmbBx"
                   Grid.Row="1"
-                  Grid.Column="0"
+                  Grid.Column="1"
                   Grid.ColumnSpan="1"
                   Width="199"
                   HorizontalAlignment="Right"
@@ -88,7 +90,7 @@
 
         <ComboBox x:Name="higherGradeCmbBx"
                   Grid.Row="1"
-                  Grid.Column="0"
+                  Grid.Column="1"
                   Grid.ColumnSpan="1"
                   Width="199"
                   HorizontalAlignment="Right"
@@ -102,8 +104,26 @@
                                        Mode=TwoWay,
                                        Converter={StaticResource BoolToVisibilityConverter}}" />
 
+        <ListBox x:Name="MyList"
+                 Grid.Row="1"
+                 Grid.RowSpan="4"
+                 Grid.Column="3"
+                 FontSize="30"
+                 Foreground="Green"
+                 ItemsSource="{Binding AddedSubjectGradePairs}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <Run Text="{Binding Subject}" /><Run Text=" - " /><Run Text="{Binding Points}" />
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
         <Button x:Name="addGradeBtn"
                 Grid.Row="2"
+                Grid.Column="1"
                 HorizontalAlignment="Left"
                 Command="{Binding Path=AddGradeCommand}"
                 Content="Add Grade"
@@ -112,19 +132,24 @@
 
         <ToggleButton x:Name="higherTglBtn"
                       Grid.Row="2"
-                      Grid.Column="0"
+                      Grid.Column="1"
                       HorizontalAlignment="Center"
                       Content="Higher"
                       IsChecked="{Binding IsHigher,
                                           Mode=TwoWay}" />
-        <ToggleButton x:Name="ordinaryTglBtn"
+
+        <ToggleButton x:Name="higherMathTglBtn"
                       Grid.Row="2"
-                      Grid.Column="0"
+                      Grid.Column="1"
                       Margin="360,59,168,59"
                       HorizontalAlignment="Center"
-                      Content="Ordinary"
-                      IsChecked="{Binding IsOrdinary,
+                      Content="H/Math"
+                      IsChecked="{Binding IsHigherMath,
                                           Mode=TwoWay}" />
+
+
+
+
     </Grid>
 
     <Page.BottomAppBar>

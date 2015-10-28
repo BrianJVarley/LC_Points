@@ -171,20 +171,7 @@ namespace LC_Points.ViewModel
         }
 
 
-        //Higher grades toggle button bool
-        private bool _isEitherHigherVisible;
-        public bool IsEitherHigherVisible
-        {
-            get
-            {
-                return _isHigherMath || _isHigher ;
-
-            }
-           
-        }
-
-
-
+        
         //Higher toggle button bool property
         private bool _isHigher;
         public bool IsHigher
