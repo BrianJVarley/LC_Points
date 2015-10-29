@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:LC_Points"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:controls="using:LC_Points.Controls"
       mc:Ignorable="d">
 
     <Page.Resources>
@@ -146,6 +147,27 @@
                       Content="H/Math"
                       IsChecked="{Binding IsHigherMath,
                                           Mode=TwoWay}" />
+
+
+        <Border Grid.Column="3"
+                    Background="Black"
+                    Margin="0">
+            <controls:Gauge Minimum="0"
+                                Maximum="100"
+                                Height="400"
+                                Value="600"
+                                NeedleBrush="Transparent"
+                                ScaleTickBrush="Black"
+                                ScaleBrush="DarkSlateGray"
+                                TickBrush="Transparent"
+                                TrailBrush="DarkSeaGreen"
+                                ValueBrush="DarkSeaGreen"
+                                ValueStringFormat="N1"
+                                Unit="° Fahrenheit"
+                                UnitBrush="DarkGray"
+                                Value="{Binding TotalPoints,
+                                            Mode=TwoWay}"/>
+        </Border>
 
 
 
