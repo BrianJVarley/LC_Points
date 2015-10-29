@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Data;
 
 namespace LC_Points.Converter
 {
-    class BoolToNonVisibilityConverter : IValueConverter
+    public class BoolToNonVisibilityConverter : IValueConverter
     {
        
         public object Convert(object value, Type targetType, object parameter, string language)

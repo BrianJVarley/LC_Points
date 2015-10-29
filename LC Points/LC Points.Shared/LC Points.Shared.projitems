@@ -15,7 +15,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Gauge.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converter\BoolToNonVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converter\BoolToVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ScoreModel.cs" />
@@ -27,11 +26,5 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en-US\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="$(MSBuildThisFileDirectory)Controls\Gauge.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
 </Project>
