@@ -202,7 +202,6 @@ namespace LC_Points.ViewModel
         {
 
             string SelectedSubjectName = "null subject";
-            string HigherMaths = "Mathematics";
             int SelectedPoints = 0;
 
 
@@ -210,9 +209,9 @@ namespace LC_Points.ViewModel
  
             SelectedPoints = IsHigher ? SelectedHigherGrade.Value : SelectedOrdinaryGrade.Value;
 
-            
 
-            if (_repository.Count <= 5)
+
+            if (_repository.Count <= 5 && _repository.Collection.All(s => s.Subject != SelectedSubjectName)) 
             {
                 _repository.Add(new ScoreModel() {Subject = SelectedSubjectName, Points = SelectedPoints});
                 CalculateLeavingCertPoints();
