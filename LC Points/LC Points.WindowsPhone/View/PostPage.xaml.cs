@@ -110,6 +110,7 @@ namespace LC_Points.View
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedTo(e);
+            //Invoke Login task when PostPage is loaded  -->
             Login();
         }
 
@@ -143,8 +144,13 @@ namespace LC_Points.View
             Uri startUri = loginUrl;
             Uri endUri = new Uri(redirectUri, UriKind.Absolute);
 
-            //Avvio l'operazione di autenticazione
             WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri, null, WebAuthenticationOptions.None);
+
+            var postArgs = new Dictionary<string, string>();
+            postArgs["link"] = "http://allaboutwindowsphone.com/software/developer/Brian-Varley.php";
+            postArgs["name"] = "More from BV Apps..";
+            postArgs["message"] = "I'm using LC Points to calculate my Leaving Cert Points!" ;
+            fb.PostTaskAsync("[pageid]/feed/", postArgs);
 
         }
 
