@@ -341,7 +341,7 @@ namespace LC_Points.ViewModel
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "B1", Value = 85 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "B2", Value = 80 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "B3", Value = 75 });
-            higherGradePointKVTemp.Add(new StringKeyValue { Key = "C1 Higher Grades", Value = 70 });
+            higherGradePointKVTemp.Add(new StringKeyValue { Key = "C1", Value = 70 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "C2", Value = 65 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "C3", Value = 60 });
             higherGradePointKVTemp.Add(new StringKeyValue { Key = "D1", Value = 55 });
@@ -370,7 +370,7 @@ namespace LC_Points.ViewModel
             higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "B2", Value = 105 });
             higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "B3", Value = 100 });
             higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "C1", Value = 95 });
-            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "C2 Higher Maths", Value = 90 });
+            higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "C2", Value = 90 });
             higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "C3", Value = 85 });
             higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "D1", Value = 80 });
             higherMathGradePointKVTemp.Add(new StringKeyValue { Key = "D2", Value = 75 });
