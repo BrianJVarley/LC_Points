@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="47582BrianVarley.LCPoints" Publisher="CN=9A4AAF2D-CB7C-4F22-9A0B-6F983D906BAA" Version="1.1.0.0" />
+  <Identity Name="47582BrianVarley.LCPoints" Publisher="CN=9A4AAF2D-CB7C-4F22-9A0B-6F983D906BAA" Version="1.1.0.2" />
   <Properties>
     <DisplayName>LC Points</DisplayName>
     <PublisherDisplayName>Brian Varley</PublisherDisplayName>
@@ -15,11 +15,12 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="LC_Points.Windows.App">
-      <m2:VisualElements DisplayName="LC Points" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="LC Points.Windows" ForegroundText="dark" BackgroundColor="#464646">
+      <m2:VisualElements DisplayName="LC Points" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="LC Points is a handy Leaving Certificate points calculation app." ForegroundText="dark" BackgroundColor="#464646" ToastCapable="false">
         <m2:SplashScreen Image="Assets\SplashScreen.png" />
         <m2:InitialRotationPreference>
           <m2:Rotation Preference="landscape" />
         </m2:InitialRotationPreference>
+        <m2:ApplicationView MinWidth="default" />
       </m2:VisualElements>
     </Application>
   </Applications>

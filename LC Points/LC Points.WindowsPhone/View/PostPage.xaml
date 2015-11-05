@@ -47,7 +47,6 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    FontSize="30"
-                   
                    Text="    Posted to your timeline!"
                    TextWrapping="Wrap" />
     </Grid>
