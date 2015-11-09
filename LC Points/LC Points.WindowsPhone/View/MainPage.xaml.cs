@@ -72,11 +72,9 @@ namespace LC_Points
             //Facebook app id
             var clientId = "573586446116744";
             //Facebook permissions
-            var scope = "public_profile, email";
+            var scope = "public_profile, email, publish_actions";
 
-            MessageDialog successMsgbox;
-            MessageDialog errorMsgbox = null;
-
+            
             var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
             var fb = new FacebookClient();
             var loginUrl = fb.GetLoginUrl(new
@@ -92,28 +90,15 @@ namespace LC_Points
 
             WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri, null, WebAuthenticationOptions.None);
 
+            var postArgs = new Dictionary<string, string>();
+            postArgs["link"] = "http://allaboutwindowsphone.com/software/developer/Brian-Varley.php";
+            postArgs["name"] = "More from BV Apps..";
+            postArgs["message"] = "I'm using LC Points to calculate my Leaving Cert Points!";
+            await fb.PostTaskAsync("[pageid]/feed/", postArgs);
 
-            Exception exception = null;
-
-            try
-            {
-                var postArgs = new Dictionary<string, string>();
-                postArgs["link"] = "http://allaboutwindowsphone.com/software/developer/Brian-Varley.php";
-                postArgs["name"] = "More from BV Apps..";
-                postArgs["message"] = "I'm using LC Points to calculate my Leaving Cert Points!";
-                await fb.PostTaskAsync("[pageid]/feed/", postArgs);
-                successMsgbox = new MessageDialog("Shared on your timeline!");
-                await successMsgbox.ShowAsync();
-            }
-            catch (Exception e)
-            {
-                errorMsgbox = new MessageDialog("An unhandled exception of type: " + e.InnerException);
-            }
-
-            if (exception != null)
-            {
-                await errorMsgbox.ShowAsync();
-            }
+           
+           
+            
 
 
         }

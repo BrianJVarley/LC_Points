@@ -24,8 +24,16 @@
             <RowDefinition Height="20*" />
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+
         <!--  Title Panel  -->
-        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+        <StackPanel Grid.Row="0"
+                    Grid.ColumnSpan="3"
+                    Margin="19,0,0,0">
             <TextBlock Margin="0,12,0,0"
                        Style="{ThemeResource TitleTextBlockStyle}"
                        Text="LC POINTS" />
@@ -43,11 +51,12 @@
         <TextBlock x:Uid="About"
                    Grid.Row="1"
                    Grid.RowSpan="4"
+                   Grid.Column="1"
                    Width="400"
                    Height="750"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
-                   FontSize="23"
+                   FontSize="20"
                    Text=""
                    TextWrapping="Wrap" />
     </Grid>
