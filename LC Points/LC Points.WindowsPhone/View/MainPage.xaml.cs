@@ -62,21 +62,20 @@ namespace LC_Points
 
         private async void shareBtn_Click(object sender, RoutedEventArgs e)
         {
-            await ShareScore();
+            await ShareApp();
         }
 
 
 
-        private async Task ShareScore()
+        private async Task ShareApp()
         {
             //Facebook app id
             var clientId = "573586446116744";
             //Facebook permissions
             var scope = "public_profile, email, publish_actions";
-
-            
             var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
             var fb = new FacebookClient();
+            var app = new FacebookClient(fb.AccessToken);
             var loginUrl = fb.GetLoginUrl(new
             {
                 client_id = clientId,
@@ -87,22 +86,23 @@ namespace LC_Points
 
             Uri startUri = loginUrl;
             Uri endUri = new Uri(redirectUri, UriKind.Absolute);
-
             WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri, null, WebAuthenticationOptions.None);
 
-            var postArgs = new Dictionary<string, string>();
+
+            //Code to post app on the user's timeline after button click..
+            var postArgs = new Dictionary<string, object>();
             postArgs["link"] = "http://allaboutwindowsphone.com/software/developer/Brian-Varley.php";
             postArgs["name"] = "More from BV Apps..";
             postArgs["message"] = "I'm using LC Points to calculate my Leaving Cert Points!";
-            await fb.PostTaskAsync("[pageid]/feed/", postArgs);
-
-           
-           
-            
-
-
+            await app.PostTaskAsync("/me/feed", postArgs);
+            //app.Api("/me/feed", postArgs, HttpMethod.Post); //no Api method available which is why I've used PostTaskAsync instead.
+          
+      
         }
 
+        
+        
+        
             
         
     }

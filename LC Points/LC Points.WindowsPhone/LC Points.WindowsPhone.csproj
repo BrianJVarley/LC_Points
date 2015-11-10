@@ -128,9 +128,6 @@
     <Reference Include="Facebook">
       <HintPath>..\..\packages\Facebook.7.0.6\lib\portable-win81+wpa81\Facebook.dll</HintPath>
     </Reference>
-    <Reference Include="Facebook.Client">
-      <HintPath>..\..\packages\Facebook.Client.1.0.3\lib\wpa81\Facebook.Client.dll</HintPath>
-    </Reference>
     <Reference Include="GalaSoft.MvvmLight">
       <HintPath>..\..\packages\MvvmLightLibs.5.1.1.0\lib\wpa81\GalaSoft.MvvmLight.dll</HintPath>
     </Reference>
