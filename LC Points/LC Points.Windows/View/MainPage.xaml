@@ -2,17 +2,17 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:controls="using:WinRTXamlToolkit.Controls"
-      xmlns:converter="using:LC_Points.Converter"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:LC_Points"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:visibility_converter="using:LC_Points.Converter"
       mc:Ignorable="d">
 
     <Page.Resources>
         <!--  TODO: Delete this line if the key AppName is declared in App.xaml  -->
         <x:String x:Key="AppName">LC Points</x:String>
-        <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-        <converter:BoolToNonVisibilityConverter x:Key="BoolToNonVisibilityConverter" />
+        <visibility_converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <visibility_converter:BoolToNonVisibilityConverter x:Key="BoolToNonVisibilityConverter" />
     </Page.Resources>
 
     <!--
@@ -126,13 +126,36 @@
         <Button x:Name="addGradeBtn"
                 Grid.Row="2"
                 Grid.Column="1"
-                Width="100"
+                Width="110"
                 Height="60"
                 HorizontalAlignment="Left"
                 Command="{Binding Path=AddGradeCommand}"
-                Content="Add Grade"
+                Content="Add"
                 IsEnabled="{Binding ButtonEnabled,
                                     Mode=TwoWay}" />
+
+        <Button x:Name="clearGradesBtn"
+                Grid.Row="2"
+                Grid.Column="1"
+                Width="110"
+                Height="60"
+                Margin="149,43,438,42"
+                HorizontalAlignment="Center"
+                Command="{Binding Path=ClearGradesCommand}"
+                Content="Clear"
+                IsEnabled="{Binding ButtonEnabled,
+                                    Mode=TwoWay}" />
+
+        <ToggleButton x:Name="higherMathTglBtn"
+                      Grid.Row="2"
+                      Grid.Column="1"
+                      Width="100"
+                      Height="60"
+                      Margin="466,43,131,42"
+                      HorizontalAlignment="Center"
+                      Content="H/Math"
+                      IsChecked="{Binding IsHigherMath,
+                                          Mode=TwoWay}" />
 
         <ToggleButton x:Name="higherTglBtn"
                       Grid.Row="2"
@@ -144,11 +167,12 @@
                       IsChecked="{Binding IsHigher,
                                           Mode=TwoWay}" />
 
+
         <Border Grid.Row="3"
                 Grid.RowSpan="3"
                 Grid.Column="1"
-                Margin="0"
-                Background="Transparent">
+                Grid.ColumnSpan="1"
+                Background="Black">
             <controls:Gauge Width="540"
                             Height="320"
                             Maximum="600"

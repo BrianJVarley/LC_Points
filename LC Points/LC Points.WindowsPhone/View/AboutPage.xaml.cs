@@ -44,11 +44,17 @@ namespace LC_Points.View
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
 
-            Launcher.LaunchUriAsync(new Uri("ms-windows-store:reviewapp?appid=" + APP_ID));
+            ShareReviewAppTask();
 
             ViewModel = new AboutViewModel();
             this.DataContext = ViewModel;
 
+        }
+
+
+        private async void ShareReviewAppTask()
+        {
+            await Launcher.LaunchUriAsync(new Uri("ms-windows-store:reviewapp?appid=" + APP_ID));
         }
 
         /// <summary>

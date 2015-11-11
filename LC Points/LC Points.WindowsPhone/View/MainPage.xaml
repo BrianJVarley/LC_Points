@@ -192,11 +192,6 @@
                     </Interactivity:Interaction.Behaviors>
                 </AppBarButton>
             </CommandBar.PrimaryCommands>
-            <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="shareBtn"
-                              Click="shareBtn_Click"
-                              Label="Share app on Facebook!" />
-            </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
 </Page>

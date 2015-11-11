@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="47582BrianVarley.LCPoints" Publisher="CN=9A4AAF2D-CB7C-4F22-9A0B-6F983D906BAA" Version="1.1.0.2" />
+  <Identity Name="47582BrianVarley.LCPoints" Publisher="CN=9A4AAF2D-CB7C-4F22-9A0B-6F983D906BAA" Version="1.1.0.4" />
   <Properties>
     <DisplayName>LC Points</DisplayName>
     <PublisherDisplayName>Brian Varley</PublisherDisplayName>

@@ -60,13 +60,10 @@ namespace LC_Points
         }
 
 
-        private async void shareBtn_Click(object sender, RoutedEventArgs e)
-        {
-            await ShareApp();
-        }
+        
 
-
-
+        //Facebook share feature under review on Developer platform, re-integrate when review complete
+        /*
         private async Task ShareApp()
         {
             //Facebook app id
@@ -99,6 +96,9 @@ namespace LC_Points
           
       
         }
+         */
+
+
 
         
         
